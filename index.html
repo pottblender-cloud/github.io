@@ -1,0 +1,2748 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISUMI 산업부품 카탈로그</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #e60012;
+    --red-dark: #b3000f;
+    --black: #1a1a1a;
+    --gray-900: #2a2a2a;
+    --gray-700: #444;
+    --gray-400: #888;
+    --gray-200: #ddd;
+    --gray-100: #f4f4f4;
+    --white: #fff;
+    --accent: #ff6600;
+    --blue: #0055a5;
+    --font-main: 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --shadow: 0 2px 12px rgba(0,0,0,0.10);
+    --shadow-hover: 0 8px 32px rgba(230,0,18,0.13);
+    --radius: 6px;
+    --transition: 0.18s cubic-bezier(.4,0,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-main);
+    background: var(--gray-100);
+    color: var(--black);
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--red);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 24px;
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--red);
+    line-height: 1;
+  }
+  .logo-sub {
+    font-size: 10px;
+    color: var(--gray-400);
+    letter-spacing: 1px;
+    font-family: var(--font-mono);
+  }
+
+  /* Search bars */
+  .search-area {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .search-group {
+    flex: 1;
+    position: relative;
+  }
+  .search-group label {
+    font-size: 10px;
+    color: var(--gray-400);
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+  }
+  .search-group .input-wrap {
+    display: flex;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--white);
+    transition: border-color var(--transition);
+  }
+  .search-group .input-wrap:focus-within {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(230,0,18,0.08);
+  }
+  .search-group input {
+    flex: 1;
+    padding: 9px 14px;
+    border: none;
+    outline: none;
+    font-family: var(--font-main);
+    font-size: 13px;
+    background: transparent;
+    color: var(--black);
+  }
+  .search-group input::placeholder { color: var(--gray-400); }
+  .search-btn {
+    background: var(--red);
+    border: none;
+    color: var(--white);
+    padding: 0 14px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background var(--transition);
+  }
+  .search-btn:hover { background: var(--red-dark); }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header-actions a {
+    font-size: 12px;
+    color: var(--gray-700);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    transition: color var(--transition);
+  }
+  .header-actions a:hover { color: var(--red); }
+  .header-actions a span { font-size: 20px; }
+  .header-actions a small { font-size: 10px; font-family: var(--font-mono); }
+  .cart-badge {
+    position: relative;
+    display: inline-block;
+  }
+  .cart-badge::after {
+    content: '0';
+    position: absolute;
+    top: -5px; right: -8px;
+    background: var(--red);
+    color: white;
+    font-size: 9px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono);
+  }
+
+  /* ─── NAV CATEGORIES ─── */
+  nav {
+    background: var(--gray-900);
+    border-bottom: 2px solid var(--red);
+  }
+  .nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    overflow-x: auto;
+    gap: 0;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 18px;
+    color: rgba(255,255,255,0.80);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background var(--transition), color var(--transition);
+    border-bottom: 3px solid transparent;
+    position: relative;
+  }
+  .nav-item:hover, .nav-item.active {
+    color: var(--white);
+    background: rgba(230,0,18,0.15);
+    border-bottom-color: var(--red);
+  }
+  .nav-item .nav-icon { font-size: 16px; display:flex; align-items:center; }
+
+  /* ─── MAIN LAYOUT ─── */
+  .layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    width: 220px;
+    flex-shrink: 0;
+  }
+  .sidebar-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .sidebar-title {
+    background: var(--black);
+    color: var(--white);
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .sidebar-list { padding: 8px 0; }
+  .sidebar-list li {
+    list-style: none;
+    padding: 7px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--gray-700);
+    transition: background var(--transition), color var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sidebar-list li:hover { background: #fef0f0; color: var(--red); }
+  .sidebar-list li.active {
+    background: #fef0f0;
+    color: var(--red);
+    font-weight: 600;
+    border-left: 3px solid var(--red);
+  }
+  .sidebar-list li::before {
+    content: '▸';
+    font-size: 10px;
+    color: var(--gray-400);
+  }
+  .sidebar-list li.active::before { color: var(--red); }
+
+  /* ─── CONTENT ─── */
+  .content { flex: 1; min-width: 0; }
+
+  .content-header {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .content-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: var(--black);
+  }
+  .content-subtitle {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-family: var(--font-mono);
+    margin-top: 3px;
+  }
+  .content-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .tag {
+    background: #fef0f0;
+    color: var(--red);
+    border: 1px solid #fcc;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+
+  /* Category cards grid */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .cat-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px 14px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--black);
+  }
+  .cat-card:hover, .cat-card.selected {
+    border-color: var(--red);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+  .cat-card.selected { background: #fef0f0; }
+  .cat-svg-wrap {
+    width: 80px; height: 80px;
+    background: var(--gray-100);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 6px;
+    transition: transform 0.2s ease;
+  }
+  .cat-card:hover .cat-svg-wrap, .cat-card.selected .cat-svg-wrap {
+    background: #fde0e0;
+    transform: scale(1.08);
+  }
+  .cat-svg-wrap svg {
+    width: 68px; height: 68px;
+  }
+  .cat-name {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--black);
+  }
+  .cat-count {
+    font-size: 10px;
+    color: var(--gray-400);
+    font-family: var(--font-mono);
+  }
+
+  /* Product section */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-label-text {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: var(--black);
+  }
+  .section-label-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--red), transparent);
+  }
+
+  /* Products grid */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1.5px solid transparent;
+    transition: all var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover {
+    border-color: var(--red);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+  .product-img-wrap {
+    background: var(--gray-100);
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-img-wrap img {
+    max-width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+  .product-badge {
+    position: absolute;
+    top: 8px; left: 8px;
+    background: var(--red);
+    color: white;
+    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+  .product-info {
+    padding: 12px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .product-name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--black);
+  }
+  .product-code {
+    font-size: 10px;
+    color: var(--gray-400);
+    font-family: var(--font-mono);
+  }
+  .product-footer {
+    padding: 10px 14px;
+    border-top: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .product-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--red);
+    font-family: var(--font-mono);
+  }
+  .product-ext {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-family: var(--font-mono);
+  }
+
+  /* ─── RIGHT PANEL ─── */
+  .right-panel {
+    width: 240px;
+    flex-shrink: 0;
+  }
+
+
+  /* ══════════════ SITE SWITCHER ══════════════ */
+  .site-switcher {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .site-switcher-inner {
+    max-width: 1400px; margin: 0 auto;
+    padding: 0 24px;
+    display: flex; gap: 0;
+  }
+  .site-btn {
+    position: relative;
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 20px;
+    background: none; border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-align: left;
+    flex: 1;
+    overflow: hidden;
+  }
+  .site-btn::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  .site-btn:hover { background: var(--gray-100); }
+  .site-btn-accent {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  .site-btn.active .site-btn-accent,
+  .site-btn:hover .site-btn-accent { opacity: 1; }
+  .site-btn-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--gray-100);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background var(--transition);
+  }
+  .site-btn.active .site-btn-icon,
+  .site-btn:hover .site-btn-icon { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
+  .site-btn-body {
+    display: flex; flex-direction: column; gap: 2px; min-width: 0;
+  }
+  .site-btn-name {
+    font-size: 12px; font-weight: 700; color: var(--black);
+    white-space: nowrap; letter-spacing: 0.3px;
+    transition: color var(--transition);
+  }
+  .site-btn-url {
+    font-family: var(--font-mono); font-size: 9px;
+    color: var(--gray-400); letter-spacing: 0.3px;
+  }
+  .site-btn-tag {
+    display: inline-block; font-family: var(--font-mono);
+    font-size: 8.5px; font-weight: 600;
+    border: 1px solid; border-radius: 3px;
+    padding: 1px 5px; letter-spacing: 0.5px;
+    width: fit-content; margin-top: 1px;
+    opacity: 0; transform: translateY(3px);
+    transition: all 0.2s ease;
+  }
+  .site-btn.active .site-btn-tag,
+  .site-btn:hover .site-btn-tag { opacity: 1; transform: translateY(0); }
+  .site-btn.active .site-btn-name { color: var(--black); }
+
+  /* active 상태별 하단 border */
+  .site-btn.active[id="siteBtn-misumi"]    { border-bottom-color: #e60012; }
+  .site-btn.active[id="siteBtn-watool"]    { border-bottom-color: #0055cc; }
+  .site-btn.active[id="siteBtn-omron"]     { border-bottom-color: #cc0000; }
+  .site-btn.active[id="siteBtn-misumi_kr"] { border-bottom-color: #005bac; }
+  .site-btn.active[id="siteBtn-heishin"]   { border-bottom-color: #1a7a3c; }
+
+  /* ══════════════ MAIN PAGE ══════════════ */
+  #mainPage {
+    position: fixed; inset: 0; z-index: 200;
+    background: #f7f5f2;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; cursor: none;
+  }
+  #mainPage::before {
+    content: ''; position: absolute; top:0; left:0;
+    width: 5px; height: 100%; background: #c8001a;
+  }
+  .mp-dots {
+    position: absolute; top: 48px; right: 52px;
+    display: grid; grid-template-columns: repeat(5,1fr); gap: 8px;
+  }
+  .mp-dots span { width:3px; height:3px; border-radius:50%; background:rgba(200,0,26,0.2); display:block; }
+  .mp-screw {
+    position: absolute; bottom:-90px; right:-90px;
+    width:340px; height:340px; pointer-events:none; opacity:0.15;
+    animation: screw-slow 28s linear infinite; transform-origin:center;
+  }
+  @keyframes screw-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  #nutCursor {
+    position: fixed; width:38px; height:38px;
+    pointer-events:none; z-index:9999;
+    transform:translate(-50%,-50%); opacity:0; transition:opacity 0.25s;
+  }
+  #nutCursor.visible { opacity:1; }
+  .mp-center {
+    position:relative; z-index:2; text-align:left;
+    user-select:none; padding-left:36px;
+    border-left:2px solid rgba(200,0,26,0.15);
+  }
+  .mp-tag {
+    font-family:var(--font-mono); font-size:10px; letter-spacing:4px;
+    color:#c8001a; text-transform:uppercase; margin-bottom:26px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .mp-tag::before {
+    content:''; display:inline-block; width:20px; height:1px;
+    background:#c8001a; flex-shrink:0;
+  }
+  .mp-title-wrap { position:relative; display:inline-block; line-height:1; }
+  .mp-main-title {
+    font-family:var(--font-display);
+    font-size:clamp(88px,12vw,148px);
+    letter-spacing:8px; line-height:1; color:#1a1a1a; margin:0; display:block;
+  }
+  .mp-title-underline {
+    display:block; width:56px; height:3px;
+    background:#c8001a; border-radius:2px; margin-top:12px;
+  }
+  .mp-sub-title {
+    font-family:var(--font-mono); font-size:11px; letter-spacing:6px;
+    color:#aaa; text-transform:uppercase; margin-top:26px; display:block;
+  }
+  .mp-click-hint {
+    position:fixed; bottom:36px; left:50%; transform:translateX(-50%);
+    font-family:var(--font-mono); font-size:9px; letter-spacing:3.5px;
+    color:#bbb; pointer-events:none; white-space:nowrap; z-index:10;
+    animation:hint-pulse 2.5s ease-in-out infinite alternate;
+  }
+  @keyframes hint-pulse { from{opacity:0.4} to{opacity:0.85} }
+  @keyframes fade-out-gentle { 0%{opacity:1} 100%{opacity:0} }
+  .page-flash-out { animation:fade-out-gentle 0.4s ease-out forwards; }
+  .logo-wrap { cursor:pointer; }
+  #homeBtn {
+    color:var(--gray-700); text-decoration:none;
+    display:flex; flex-direction:column; align-items:center;
+    gap:3px; font-size:12px; transition:color var(--transition);
+  }
+  #homeBtn:hover { color:var(--red); }
+  #homeBtn small { font-size:10px; font-family:var(--font-mono); }
+
+  /* ══════════════ STAT CARDS ══════════════ */
+  .panel-card {
+    background:var(--white); border-radius:var(--radius);
+    padding:16px; margin-bottom:14px; box-shadow:var(--shadow);
+  }
+  .panel-card-title {
+    font-size:11px; font-family:var(--font-mono); font-weight:700;
+    text-transform:uppercase; letter-spacing:1px;
+    color:var(--black); margin-bottom:14px;
+    padding-bottom:8px; border-bottom:2px solid var(--red);
+    display:flex; align-items:center;
+  }
+  .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .stat-card {
+    background:var(--gray-100); border-radius:6px;
+    padding:12px 10px; text-align:center; border:1.5px solid transparent;
+    transition:all var(--transition);
+  }
+  .stat-card:hover { border-color:var(--red); background:#fef0f0; }
+  .stat-card-num {
+    font-family:var(--font-display); font-size:26px;
+    color:var(--red); letter-spacing:1px; line-height:1;
+  }
+  .stat-card-label {
+    font-family:var(--font-mono); font-size:9px;
+    color:var(--gray-400); margin-top:4px; letter-spacing:0.5px;
+  }
+
+  /* ══════════════ CATEGORY CARDS ══════════════ */
+  .cat-card {
+    background:var(--white); border-radius:10px;
+    border:2px solid var(--gray-200);
+    padding:16px 12px; text-align:center; cursor:pointer;
+    transition:all 0.2s cubic-bezier(.4,0,.2,1);
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    animation:fadeInUp 0.35s ease both;
+  }
+  .cat-card:hover {
+    border-color:var(--red); box-shadow:var(--shadow-hover);
+    transform:translateY(-3px);
+  }
+  .cat-card.selected { border-color:var(--red); background:#fef5f5; }
+  .cat-svg-wrap {
+    width:54px; height:54px; display:flex; align-items:center;
+    justify-content:center; opacity:.75; transition:opacity var(--transition);
+  }
+  .cat-card:hover .cat-svg-wrap { opacity:1; }
+  .cat-name { font-size:12px; font-weight:700; color:var(--black); line-height:1.3; }
+  .cat-count { font-family:var(--font-mono); font-size:9px; color:var(--gray-400); }
+
+  /* ══════════════ PRODUCT CARDS ══════════════ */
+  .product-card {
+    background:var(--white); border-radius:10px;
+    box-shadow:var(--shadow); overflow:hidden; cursor:pointer;
+    transition:all 0.2s cubic-bezier(.4,0,.2,1);
+    display:flex; flex-direction:column;
+    border:1.5px solid transparent;
+    animation:fadeInUp 0.35s ease both;
+  }
+  .product-card:hover {
+    box-shadow:var(--shadow-hover); transform:translateY(-4px);
+    border-color:rgba(230,0,18,0.15);
+  }
+  .product-img-wrap {
+    background:var(--gray-100); padding:16px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; height:110px; overflow:hidden;
+  }
+  .product-badge {
+    position:absolute; top:8px; left:8px;
+    background:var(--red); color:#fff;
+    font-size:9px; font-weight:700; font-family:var(--font-mono);
+    padding:2px 7px; border-radius:3px; letter-spacing:0.5px;
+  }
+  .product-info { padding:12px; flex:1; display:flex; flex-direction:column; gap:4px; }
+  .product-code { font-family:var(--font-mono); font-size:9px; color:var(--gray-400); }
+  .product-name { font-size:12px; font-weight:700; color:var(--black); line-height:1.35; }
+  .product-spec { font-size:10px; color:var(--gray-400); }
+  .product-footer {
+    padding:10px 12px; border-top:1px solid var(--gray-100);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .product-link {
+    display:flex; align-items:center; gap:4px;
+    font-size:11px; font-weight:600; color:var(--red); font-family:var(--font-mono);
+  }
+  .product-ext { font-size:11px; color:var(--gray-400); font-family:var(--font-mono); }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ══════════════ FOOTER ══════════════ */
+  footer {
+    background:var(--black); color:var(--white);
+    margin-top:40px; padding:40px 0 0;
+  }
+  .footer-inner {
+    max-width:1400px; margin:0 auto; padding:0 24px 40px;
+    display:grid; gap:40px;
+  }
+  .footer-logo { display:flex; flex-direction:column; gap:8px; }
+  .footer-logo-text {
+    font-family:var(--font-display); font-size:32px;
+    letter-spacing:4px; color:var(--red);
+  }
+  .footer-desc { font-size:12px; line-height:1.7; color:rgba(255,255,255,0.5); }
+  .footer-col-title {
+    font-family:var(--font-mono); font-size:10px; font-weight:700;
+    text-transform:uppercase; letter-spacing:2px;
+    color:rgba(255,255,255,0.4); margin-bottom:14px;
+    padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-col ul { list-style:none; }
+  .footer-col ul li { margin-bottom:8px; }
+  .footer-col ul li a {
+    color:rgba(255,255,255,0.65); text-decoration:none;
+    font-size:13px; transition:color var(--transition);
+  }
+  .footer-col ul li a:hover { color:var(--red); }
+  .footer-bottom {
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding:16px 24px; max-width:1400px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:11px; color:rgba(255,255,255,0.3);
+    font-family:var(--font-mono);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+
+    <a class="logo-wrap" href="#" onclick="showMainPage(); return false;">
+      <div class="logo-icon">⚙️</div>
+      <div>
+        <div class="logo-text">MODORI</div>
+        <div class="logo-sub">MOLD PARTS PORTAL</div>
+      </div>
+    </a>
+
+    <div class="search-area">
+      <div class="search-group">
+        <label>🏢 메이커(サイト) 검색</label>
+        <div class="input-wrap">
+          <input type="text" id="makerSearch" placeholder="메이커명 · 브랜드명 · 会社名" autocomplete="off">
+          <button class="search-btn" onclick="doMakerSearch()">🔍</button>
+        </div>
+      </div>
+      <div class="search-group">
+        <label>🔩 제품명(製品) 검색</label>
+        <div class="input-wrap">
+          <input type="text" id="productSearch" placeholder="제품명 · 형번 · 商品名" autocomplete="off" oninput="liveProductSearch(this.value)">
+          <button class="search-btn" onclick="doProductSearch()">🔍</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <a href="#" onclick="showMainPage(); return false;" id="homeBtn" style="display:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <small>홈</small>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════ MAIN PAGE ══ -->
+<div id="mainPage" onclick="boltClick()">
+
+  <!-- dot cluster top right -->
+  <div class="mp-dots">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- screw top-view decoration — bottom right -->
+  <svg class="mp-screw" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- outer rim -->
+    <circle cx="170" cy="170" r="158" stroke="#1a1a1a" stroke-width="6"/>
+    <!-- chamfer ring -->
+    <circle cx="170" cy="170" r="148" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="none"/>
+    <!-- inner shadow ring -->
+    <circle cx="170" cy="170" r="136" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+    <!-- Phillips cross slot — vertical bar -->
+    <rect x="161" y="54" width="18" height="232" rx="4" fill="#1a1a1a"/>
+    <!-- Phillips cross slot — horizontal bar -->
+    <rect x="54" y="161" width="232" height="18" rx="4" fill="#1a1a1a"/>
+    <!-- Phillips cross slot — diagonal taper top-left -->
+    <polygon points="161,161 170,120 179,161" fill="#1a1a1a"/>
+    <polygon points="161,179 120,170 161,161" fill="#1a1a1a"/>
+    <polygon points="179,179 170,220 161,179" fill="#1a1a1a"/>
+    <polygon points="179,161 220,170 179,179" fill="#1a1a1a"/>
+    <!-- center pip -->
+    <circle cx="170" cy="170" r="10" fill="#1a1a1a"/>
+    <!-- knurling marks around rim — tick lines -->
+    <line x1="170" y1="12" x2="170" y2="22" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="218" y1="19" x2="213" y2="28" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="257" y1="44" x2="249" y2="51" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="283" y1="83" x2="274" y2="88" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="296" y1="128" x2="286" y2="130" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="296" y1="212" x2="286" y2="210" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="283" y1="257" x2="274" y2="252" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="257" y1="296" x2="249" y2="289" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="218" y1="321" x2="213" y2="312" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="170" y1="328" x2="170" y2="318" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="122" y1="321" x2="127" y2="312" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="83" y1="296" x2="91" y2="289" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="57" y1="257" x2="66" y2="252" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="44" y1="212" x2="54" y2="210" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="44" y1="128" x2="54" y2="130" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="57" y1="83" x2="66" y2="88" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="83" y1="44" x2="91" y2="51" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="122" y1="19" x2="127" y2="28" stroke="#1a1a1a" stroke-width="2.5"/>
+  </svg>
+
+  <!-- NUT CURSOR -->
+  <svg id="nutCursor" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="19,2 34,10 34,28 19,36 4,28 4,10" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+    <circle cx="19" cy="19" r="8" fill="none" stroke="#f7f5f2" stroke-width="1.8"/>
+    <circle cx="19" cy="19" r="2.8" fill="#f7f5f2"/>
+  </svg>
+
+  <!-- CENTER CONTENT -->
+  <div class="mp-center">
+    <div class="mp-tag">모든 금형 부품을 모았다</div>
+    <div class="mp-title-wrap">
+      <div class="mp-main-title">MODORI</div>
+      <span class="mp-title-underline"></span>
+    </div>
+    <div class="mp-sub-title">MOLD PARTS PORTAL</div>
+  </div>
+
+  <!-- CLICK HINT -->
+  <div class="mp-click-hint">CLICK ANYWHERE TO ENTER</div>
+
+</div>
+<!-- ══════════════════════════════════════════════════ END MAIN PAGE ══ -->
+
+<!-- SITE SWITCHER -->
+<div class="site-switcher" id="catalogSection" style="display:none">
+  <div class="site-switcher-inner">
+
+    <button class="site-btn active" id="siteBtn-misumi" onclick="switchSite('misumi')">
+      <span class="site-btn-accent" style="background:#e60012"></span>
+      <span class="site-btn-icon" style="color:#e60012">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </span>
+      <span class="site-btn-body">
+        <span class="site-btn-name">MISUMI JP</span>
+        <span class="site-btn-url">jp.misumi-ec.com</span>
+        <span class="site-btn-tag" style="color:#e60012;border-color:rgba(230,0,18,0.25)">135만 품목</span>
+      </span>
+    </button>
+
+    <button class="site-btn" id="siteBtn-watool" onclick="switchSite('watool')">
+      <span class="site-btn-accent" style="background:#0055cc"></span>
+      <span class="site-btn-icon" style="color:#0055cc">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </span>
+      <span class="site-btn-body">
+        <span class="site-btn-name">와툴 WATOOL</span>
+        <span class="site-btn-url">watool.co.kr</span>
+        <span class="site-btn-tag" style="color:#0055cc;border-color:rgba(0,85,204,0.25)">금형 전문</span>
+      </span>
+    </button>
+
+    <button class="site-btn" id="siteBtn-omron" onclick="switchSite('omron')">
+      <span class="site-btn-accent" style="background:#cc0000"></span>
+      <span class="site-btn-icon" style="color:#cc0000">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+      </span>
+      <span class="site-btn-body">
+        <span class="site-btn-name">OMRON 오므론</span>
+        <span class="site-btn-url">ia.omron.co.kr</span>
+        <span class="site-btn-tag" style="color:#cc0000;border-color:rgba(204,0,0,0.25)">FA 자동화</span>
+      </span>
+    </button>
+
+    <button class="site-btn" id="siteBtn-misumi_kr" onclick="switchSite('misumi_kr')">
+      <span class="site-btn-accent" style="background:#005bac"></span>
+      <span class="site-btn-icon" style="color:#005bac">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </span>
+      <span class="site-btn-body">
+        <span class="site-btn-name">한국미스미 경제형</span>
+        <span class="site-btn-url">kr.misumi-ec.com</span>
+        <span class="site-btn-tag" style="color:#005bac;border-color:rgba(0,91,172,0.25)">1300만 품목</span>
+      </span>
+    </button>
+
+    <button class="site-btn" id="siteBtn-heishin" onclick="switchSite('heishin')">
+      <span class="site-btn-accent" style="background:#1a7a3c"></span>
+      <span class="site-btn-icon" style="color:#1a7a3c">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5v3H7V7a5 5 0 0 1 5-5z"/><path d="M7 10v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V10"/><line x1="12" y1="14" x2="12" y2="18"/></svg>
+      </span>
+      <span class="site-btn-body">
+        <span class="site-btn-name">HEISHIN 디스펜서</span>
+        <span class="site-btn-url">pump.co.kr</span>
+        <span class="site-btn-tag" style="color:#1a7a3c;border-color:rgba(26,122,60,0.25)">Mohno Pump</span>
+      </span>
+    </button>
+
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav" style="display:none">
+  <div class="nav-inner" id="navInner">
+  </div>
+</nav>
+
+<!-- MAIN LAYOUT -->
+<div class="layout" id="catalogLayout" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:6px"><rect x="2" y="3" width="8" height="8" rx="1.5"/><rect x="14" y="3" width="8" height="8" rx="1.5"/><rect x="2" y="13" width="8" height="8" rx="1.5"/><rect x="14" y="13" width="8" height="8" rx="1.5"/></svg>카테고리</div>
+      <ul class="sidebar-list" id="sidebarList"></ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:6px"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/><path d="M3 9h18"/></svg>인기 메이커</div>
+      <ul class="sidebar-list" id="sidebarMakers">
+        <li onclick="openMaker('misumi')">MISUMI</li>
+        <li onclick="openMaker('thk')">THK</li>
+        <li onclick="openMaker('smc')">SMC</li>
+        <li onclick="openMaker('nsk')">NSK</li>
+        <li onclick="openMaker('ckd')">CKD</li>
+        <li onclick="openMaker('keyence')">KEYENCE</li>
+        <li onclick="openMaker('omron')">OMRON</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <div class="content-header">
+      <div>
+        <div class="content-title" id="contentTitle">MECHANICAL PARTS</div>
+        <div class="content-subtitle" id="contentSubtitle">메카니컬 부품 카테고리</div>
+      </div>
+      <div class="content-meta" id="contentMeta">
+        <span class="tag" id="tag1">당일출고 대응</span>
+        <span class="tag" id="tag2">135만 품목+</span>
+      </div>
+    </div>
+
+    <!-- Category Grid -->
+    <div class="section-label">
+      <span class="section-label-text">CATEGORIES</span>
+      <div class="section-label-line"></div>
+    </div>
+    <div class="category-grid" id="categoryGrid"></div>
+
+    <!-- Products Grid -->
+    <div class="section-label" id="productsLabel" style="display:none">
+      <span class="section-label-text" id="productsLabelText">PRODUCTS</span>
+      <div class="section-label-line"></div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </main>
+
+  <!-- RIGHT PANEL -->
+  <aside class="right-panel">
+
+
+    <div class="panel-card">
+      <div class="panel-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:6px"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>사이트 현황</div>
+      <div id="statItems"></div>
+    </div>
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner" style="grid-template-columns:1.6fr 1fr 1fr 1fr;">
+    <div class="footer-logo">
+      <div class="footer-logo-text">MODORI</div>
+      <div class="footer-desc">금형·FA 산업부품 전문 포털<br>MISUMI · 와툴 · OMRON · 한국미스미 · HEISHIN<br>5개 플랫폼을 한 곳에서</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">제품</div>
+      <ul>
+        <li><a href="https://jp.misumi-ec.com/vona2/mech_frame" target="_blank">프레임·지주</a></li>
+        <li><a href="https://jp.misumi-ec.com/vona2/mech_screw" target="_blank">나사·볼트</a></li>
+        <li><a href="https://jp.misumi-ec.com/vona2/mech_linear" target="_blank">직동부품</a></li>
+        <li><a href="https://jp.misumi-ec.com/vona2/mech_pneu" target="_blank">공압기기</a></li>
+        <li><a href="https://jp.misumi-ec.com/vona2/mold_punch" target="_blank">펀치·다이</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">서비스</div>
+      <ul>
+        <li><a href="https://meviy.misumi-ec.com/ja-jp/" target="_blank">meviy AI견적</a></li>
+        <li><a href="https://jp.misumi-ec.com/vona2/maker/" target="_blank">메이커 목록</a></li>
+        <li><a href="https://jp.misumi-ec.com/pr/campaign/" target="_blank">캠페인</a></li>
+        <li><a href="https://www.watool.co.kr/" target="_blank">와툴 쇼핑몰</a></li>
+        <li><a href="https://www.ia.omron.co.kr/" target="_blank">한국오므론</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">고객지원</div>
+      <ul>
+        <li><a href="https://jp.misumi-ec.com/order/part-number/create" target="_blank">견적·주문</a></li>
+        <li><a href="https://jp.misumi-ec.com/pr/contents/tech/" target="_blank">기술 자료</a></li>
+        <li><a href="https://kr.misumi-ec.com/" target="_blank">한국미스미</a></li>
+        <li><a href="https://www.pump.co.kr/dispenser/" target="_blank">HEISHIN</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 MODORI · MISUMI Corporation. All rights reserved.</span>
+    <span>본 페이지는 MISUMI 공식 카탈로그로 이동하는 포털입니다.</span>
+  </div>
+</footer>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" onclick="closeOverlay(event)">
+  <div class="search-modal">
+    <button class="close-btn" onclick="document.getElementById('searchOverlay').classList.remove('active')">✕</button>
+    <div class="search-modal-title" id="overlayTitle">검색 결과</div>
+    <div id="overlayResults"></div>
+  </div>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────
+// ─── SVG ICONS per category sub-key ─────────────────────────────────
+const CAT_SVG = {
+  /* ── MECHANICAL ── */
+  frame: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="8" width="10" height="64" rx="3" fill="#2a2a2a"/>
+    <rect x="62" y="8" width="10" height="64" rx="3" fill="#2a2a2a"/>
+    <rect x="8" y="8" width="64" height="10" rx="3" fill="#444"/>
+    <rect x="8" y="62" width="64" height="10" rx="3" fill="#444"/>
+    <rect x="22" y="22" width="6" height="36" rx="2" fill="#e60012"/>
+    <rect x="52" y="22" width="6" height="36" rx="2" fill="#e60012"/>
+    <rect x="22" y="22" width="36" height="6" rx="2" fill="#e60012" opacity=".7"/>
+    <rect x="22" y="52" width="36" height="6" rx="2" fill="#e60012" opacity=".7"/>
+  </svg>`,
+
+  screw: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="36" y="6" width="8" height="46" rx="2" fill="#2a2a2a"/>
+    <rect x="28" y="6" width="24" height="10" rx="3" fill="#444"/>
+    <line x1="36" y1="18" x2="44" y2="18" stroke="#e60012" stroke-width="2"/>
+    <line x1="36" y1="26" x2="44" y2="26" stroke="#e60012" stroke-width="2"/>
+    <line x1="36" y1="34" x2="44" y2="34" stroke="#e60012" stroke-width="2"/>
+    <line x1="36" y1="42" x2="44" y2="42" stroke="#e60012" stroke-width="2"/>
+    <polygon points="36,52 44,52 42,68 38,68" fill="#2a2a2a"/>
+    <circle cx="56" cy="62" r="10" fill="none" stroke="#444" stroke-width="3"/>
+    <circle cx="56" cy="62" r="4" fill="#e60012"/>
+  </svg>`,
+
+  spring: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="28" y="6" width="24" height="6" rx="2" fill="#2a2a2a"/>
+    <rect x="28" y="68" width="24" height="6" rx="2" fill="#2a2a2a"/>
+    <path d="M28 12 Q52 20 28 30 Q52 40 28 50 Q52 60 28 68" stroke="#e60012" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M52 12 Q28 20 52 30 Q28 40 52 50 Q28 60 52 68" stroke="#c0000e" stroke-width="2" fill="none" stroke-linecap="round" opacity=".5"/>
+  </svg>`,
+
+  bearing: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="30" fill="none" stroke="#444" stroke-width="5"/>
+    <circle cx="40" cy="40" r="18" fill="none" stroke="#2a2a2a" stroke-width="5"/>
+    <circle cx="40" cy="40" r="8" fill="#e60012"/>
+    <circle cx="40" cy="13" r="4" fill="#e60012"/>
+    <circle cx="40" cy="67" r="4" fill="#e60012"/>
+    <circle cx="13" cy="40" r="4" fill="#e60012"/>
+    <circle cx="67" cy="40" r="4" fill="#e60012"/>
+    <circle cx="21" cy="21" r="3.5" fill="#c0000e" opacity=".7"/>
+    <circle cx="59" cy="59" r="3.5" fill="#c0000e" opacity=".7"/>
+    <circle cx="59" cy="21" r="3.5" fill="#c0000e" opacity=".7"/>
+    <circle cx="21" cy="59" r="3.5" fill="#c0000e" opacity=".7"/>
+  </svg>`,
+
+  linear: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="33" width="68" height="14" rx="7" fill="#444"/>
+    <rect x="6" y="36" width="68" height="8" rx="4" fill="#2a2a2a"/>
+    <rect x="22" y="24" width="20" height="22" rx="4" fill="#e60012"/>
+    <rect x="24" y="27" width="16" height="16" rx="3" fill="#c0000e"/>
+    <rect x="10" y="38" width="8" height="4" rx="1" fill="#888"/>
+    <rect x="62" y="38" width="8" height="4" rx="1" fill="#888"/>
+  </svg>`,
+
+  pneu: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="18" y="20" width="28" height="40" rx="5" fill="#2a2a2a"/>
+    <rect x="22" y="28" width="20" height="24" rx="3" fill="#444"/>
+    <rect x="22" y="28" width="20" height="10" rx="3" fill="#e60012"/>
+    <rect x="46" y="35" width="16" height="6" rx="3" fill="#555"/>
+    <circle cx="58" cy="38" r="5" fill="#e60012"/>
+    <rect x="30" y="8" width="6" height="14" rx="2" fill="#888"/>
+    <rect x="28" y="6" width="10" height="5" rx="2" fill="#555"/>
+  </svg>`,
+
+  motor: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="20" width="40" height="40" rx="5" fill="#2a2a2a"/>
+    <rect x="14" y="24" width="32" height="32" rx="3" fill="#3a3a3a"/>
+    <circle cx="30" cy="40" r="10" fill="none" stroke="#e60012" stroke-width="3"/>
+    <circle cx="30" cy="40" r="4" fill="#e60012"/>
+    <rect x="50" y="35" width="20" height="10" rx="3" fill="#444"/>
+    <rect x="68" y="37" width="5" height="6" rx="1" fill="#888"/>
+    <line x1="18" y1="20" x2="18" y2="14" stroke="#e60012" stroke-width="2.5"/>
+    <line x1="26" y1="20" x2="26" y2="14" stroke="#e60012" stroke-width="2.5"/>
+    <line x1="34" y1="20" x2="34" y2="14" stroke="#e60012" stroke-width="2.5"/>
+  </svg>`,
+
+  sensor: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="24" y="28" width="32" height="34" rx="4" fill="#2a2a2a"/>
+    <rect x="28" y="32" width="24" height="22" rx="3" fill="#1a1a2e"/>
+    <circle cx="40" cy="43" r="7" fill="none" stroke="#e60012" stroke-width="2"/>
+    <circle cx="40" cy="43" r="3" fill="#e60012"/>
+    <path d="M34 20 Q40 14 46 20" stroke="#e60012" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M30 16 Q40 8 50 16" stroke="#e60012" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".6"/>
+    <rect x="36" y="62" width="8" height="10" rx="2" fill="#555"/>
+  </svg>`,
+
+  /* ── ELECTRICAL ── */
+  wire: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 30 Q22 30 22 40 Q22 50 34 50 L70 50" stroke="#2a2a2a" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M10 40 L50 40" stroke="#e60012" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M10 50 Q22 50 22 40 Q22 30 34 30 L70 30" stroke="#444" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <rect x="64" y="25" width="10" height="10" rx="2" fill="#e60012"/>
+    <rect x="64" y="45" width="10" height="10" rx="2" fill="#e60012"/>
+    <rect x="4" y="35" width="10" height="10" rx="2" fill="#555"/>
+  </svg>`,
+
+  control: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="16" width="64" height="48" rx="4" fill="#2a2a2a"/>
+    <rect x="12" y="20" width="56" height="36" rx="3" fill="#1a1a2e"/>
+    <rect x="16" y="24" width="20" height="14" rx="2" fill="#e60012" opacity=".8"/>
+    <rect x="42" y="24" width="22" height="6" rx="2" fill="#444"/>
+    <rect x="42" y="34" width="22" height="4" rx="2" fill="#444"/>
+    <circle cx="20" cy="46" r="4" fill="#e60012"/>
+    <circle cx="32" cy="46" r="4" fill="#00aa44"/>
+    <rect x="44" y="43" width="20" height="6" rx="3" fill="#555"/>
+  </svg>`,
+
+  ipc: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="12" width="60" height="44" rx="4" fill="#2a2a2a"/>
+    <rect x="14" y="16" width="52" height="36" rx="3" fill="#1a1a2e"/>
+    <rect x="18" y="20" width="44" height="28" rx="2" fill="#0a0a1a"/>
+    <rect x="22" y="24" width="16" height="8" rx="1" fill="#e60012" opacity=".7"/>
+    <rect x="42" y="24" width="14" height="4" rx="1" fill="#444"/>
+    <rect x="42" y="30" width="14" height="4" rx="1" fill="#333"/>
+    <rect x="22" y="36" width="34" height="8" rx="1" fill="#1a1a3e"/>
+    <rect x="28" y="56" width="24" height="6" rx="2" fill="#444"/>
+    <rect x="34" y="62" width="12" height="4" rx="1" fill="#555"/>
+  </svg>`,
+
+  box: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="12" y="18" width="56" height="48" rx="4" fill="#2a2a2a"/>
+    <rect x="16" y="22" width="48" height="40" rx="3" fill="#3a3a3a"/>
+    <rect x="20" y="26" width="40" height="28" rx="2" fill="#1a1a1a"/>
+    <circle cx="52" cy="46" r="6" fill="none" stroke="#e60012" stroke-width="2"/>
+    <circle cx="52" cy="46" r="2" fill="#e60012"/>
+    <rect x="24" y="30" width="20" height="4" rx="1" fill="#e60012" opacity=".6"/>
+    <rect x="24" y="38" width="14" height="3" rx="1" fill="#555"/>
+    <rect x="24" y="44" width="18" height="3" rx="1" fill="#555"/>
+  </svg>`,
+
+  /* ── MOLD ── */
+  press: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="8" width="64" height="14" rx="3" fill="#444"/>
+    <rect x="34" y="22" width="12" height="24" rx="2" fill="#2a2a2a"/>
+    <ellipse cx="40" cy="46" rx="10" ry="6" fill="#e60012"/>
+    <rect x="12" y="52" width="56" height="18" rx="3" fill="#2a2a2a"/>
+    <rect x="16" y="56" width="48" height="10" rx="2" fill="#3a3a3a"/>
+    <ellipse cx="40" cy="61" rx="10" ry="4" fill="#444"/>
+  </svg>`,
+
+  mold: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="8" width="64" height="28" rx="4" fill="#2a2a2a"/>
+    <path d="M20 36 Q40 22 60 36" fill="#e60012" opacity=".9"/>
+    <rect x="8" y="44" width="64" height="28" rx="4" fill="#444"/>
+    <path d="M20 44 Q40 58 60 44" fill="#c0000e" opacity=".7"/>
+    <rect x="36" y="34" width="8" height="12" rx="2" fill="#888"/>
+    <circle cx="24" cy="20" r="4" fill="#555"/>
+    <circle cx="56" cy="20" r="4" fill="#555"/>
+  </svg>`,
+
+  injection: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="30" width="40" height="20" rx="4" fill="#2a2a2a"/>
+    <rect x="48" y="34" width="18" height="12" rx="2" fill="#444"/>
+    <rect x="62" y="36" width="10" height="8" rx="2" fill="#555"/>
+    <circle cx="28" cy="40" r="7" fill="none" stroke="#e60012" stroke-width="2.5"/>
+    <path d="M20 16 L28 30" stroke="#e60012" stroke-width="3" stroke-linecap="round"/>
+    <path d="M28 16 L28 30" stroke="#e60012" stroke-width="3" stroke-linecap="round"/>
+    <path d="M36 16 L28 30" stroke="#e60012" stroke-width="3" stroke-linecap="round"/>
+    <rect x="12" y="50" width="32" height="14" rx="3" fill="#3a3a3a"/>
+  </svg>`,
+
+  /* ── TOOLS ── */
+  cutting: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="36" y="8" width="8" height="50" rx="2" fill="#2a2a2a"/>
+    <polygon points="36,58 44,58 48,74 32,74" fill="#e60012"/>
+    <rect x="32" y="8" width="16" height="8" rx="2" fill="#555"/>
+    <line x1="36" y1="18" x2="44" y2="18" stroke="#e60012" stroke-width="1.5"/>
+    <line x1="36" y1="26" x2="44" y2="26" stroke="#e60012" stroke-width="1.5"/>
+    <line x1="36" y1="34" x2="44" y2="34" stroke="#e60012" stroke-width="1.5"/>
+    <line x1="36" y1="42" x2="44" y2="42" stroke="#e60012" stroke-width="1.5"/>
+    <line x1="36" y1="50" x2="44" y2="50" stroke="#e60012" stroke-width="1.5"/>
+  </svg>`,
+
+  tooling: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="26" width="44" height="28" rx="4" fill="#2a2a2a"/>
+    <rect x="54" y="32" width="16" height="8" rx="2" fill="#555"/>
+    <rect x="14" y="30" width="28" height="20" rx="2" fill="#3a3a3a"/>
+    <circle cx="28" cy="40" r="6" fill="none" stroke="#e60012" stroke-width="2.5"/>
+    <circle cx="28" cy="40" r="2" fill="#e60012"/>
+    <rect x="6" y="34" width="6" height="12" rx="2" fill="#e60012"/>
+  </svg>`,
+
+  measuring: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="34" width="64" height="16" rx="4" fill="#2a2a2a"/>
+    <rect x="12" y="38" width="56" height="8" rx="2" fill="#3a3a3a"/>
+    <line x1="20" y1="34" x2="20" y2="28" stroke="#e60012" stroke-width="2"/>
+    <line x1="30" y1="34" x2="30" y2="30" stroke="#888" stroke-width="1.5"/>
+    <line x1="40" y1="34" x2="40" y2="26" stroke="#e60012" stroke-width="2"/>
+    <line x1="50" y1="34" x2="50" y2="30" stroke="#888" stroke-width="1.5"/>
+    <line x1="60" y1="34" x2="60" y2="28" stroke="#e60012" stroke-width="2"/>
+    <line x1="38" y1="50" x2="38" y2="62" stroke="#e60012" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="34,62 42,62 40,70 36,70" fill="#e60012"/>
+  </svg>`,
+
+  grinding: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="38" r="26" fill="none" stroke="#2a2a2a" stroke-width="10"/>
+    <circle cx="40" cy="38" r="26" fill="none" stroke="#e60012" stroke-width="3" stroke-dasharray="8 6"/>
+    <circle cx="40" cy="38" r="6" fill="#2a2a2a"/>
+    <circle cx="40" cy="38" r="3" fill="#e60012"/>
+    <rect x="36" y="62" width="8" height="12" rx="2" fill="#444"/>
+  </svg>`,
+
+  handtool: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 60 L50 18" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round"/>
+    <path d="M44 14 L62 32" stroke="#e60012" stroke-width="7" stroke-linecap="round"/>
+    <path d="M44 14 L54 10 L66 22 L62 32" fill="#444"/>
+    <circle cx="20" cy="62" r="8" fill="none" stroke="#e60012" stroke-width="3"/>
+  </svg>`,
+
+  powertool: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="28" width="38" height="24" rx="5" fill="#2a2a2a"/>
+    <rect x="48" y="33" width="22" height="8" rx="2" fill="#444"/>
+    <rect x="22" y="52" width="18" height="18" rx="4" fill="#3a3a3a"/>
+    <rect x="26" y="56" width="10" height="10" rx="2" fill="#e60012" opacity=".7"/>
+    <circle cx="27" cy="36" r="5" fill="none" stroke="#e60012" stroke-width="2"/>
+    <circle cx="27" cy="36" r="2" fill="#e60012"/>
+    <line x1="36" y1="32" x2="44" y2="32" stroke="#e60012" stroke-width="2"/>
+    <line x1="36" y1="38" x2="44" y2="38" stroke="#e60012" stroke-width="2"/>
+    <line x1="36" y1="44" x2="44" y2="44" stroke="#e60012" stroke-width="2"/>
+  </svg>`,
+
+  /* ── MRO ── */
+  chemical: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="28" y="8" width="24" height="10" rx="3" fill="#444"/>
+    <path d="M24 18 L16 64 Q16 70 40 70 Q64 70 64 64 L56 18 Z" fill="#2a2a2a"/>
+    <path d="M28 18 L22 58 Q22 66 40 66 Q58 66 58 58 L52 18 Z" fill="#1a3a5a"/>
+    <ellipse cx="40" cy="52" rx="12" ry="6" fill="#e60012" opacity=".8"/>
+    <ellipse cx="40" cy="46" rx="8" ry="4" fill="#e60012" opacity=".5"/>
+    <rect x="32" y="8" width="16" height="4" rx="1" fill="#e60012"/>
+  </svg>`,
+
+  safety: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 8 L66 20 L66 44 Q66 62 40 72 Q14 62 14 44 L14 20 Z" fill="#2a2a2a"/>
+    <path d="M40 14 L60 24 L60 44 Q60 58 40 66 Q20 58 20 44 L20 24 Z" fill="#1a3a1a"/>
+    <path d="M30 40 L38 48 L54 30" stroke="#e60012" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+
+  logistics: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="22" width="44" height="34" rx="4" fill="#2a2a2a"/>
+    <rect x="12" y="26" width="36" height="26" rx="3" fill="#3a3a3a"/>
+    <rect x="52" y="34" width="20" height="22" rx="3" fill="#444"/>
+    <circle cx="20" cy="62" r="7" fill="#2a2a2a" stroke="#e60012" stroke-width="2.5"/>
+    <circle cx="60" cy="62" r="7" fill="#2a2a2a" stroke="#e60012" stroke-width="2.5"/>
+    <line x1="28" y1="32" x2="28" y2="44" stroke="#e60012" stroke-width="2"/>
+    <line x1="22" y1="38" x2="34" y2="38" stroke="#e60012" stroke-width="2"/>
+  </svg>`,
+
+  healthcare: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="28" fill="#2a2a2a"/>
+    <circle cx="40" cy="40" r="24" fill="#1a3a2a"/>
+    <rect x="34" y="26" width="12" height="28" rx="3" fill="#e60012"/>
+    <rect x="26" y="34" width="28" height="12" rx="3" fill="#e60012"/>
+    <circle cx="40" cy="40" r="4" fill="white" opacity=".3"/>
+  </svg>`,
+
+  lab: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="34" y="8" width="8" height="26" rx="2" fill="#444"/>
+    <rect x="30" y="6" width="20" height="8" rx="2" fill="#555"/>
+    <path d="M26 34 L18 62 Q16 70 40 70 Q64 70 62 62 L54 34 Z" fill="#2a2a2a"/>
+    <path d="M30 34 L24 58 Q22 66 40 66 Q58 66 56 58 L50 34 Z" fill="#1a2a3a"/>
+    <ellipse cx="40" cy="56" rx="10" ry="5" fill="#e60012" opacity=".8"/>
+    <circle cx="30" cy="50" r="3" fill="#e60012" opacity=".6"/>
+    <circle cx="50" cy="48" r="2" fill="#e60012" opacity=".5"/>
+  </svg>`,
+
+  /* ── CUSTOM ── */
+  meviy: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="40,8 68,24 68,56 40,72 12,56 12,24" fill="#2a2a2a"/>
+    <polygon points="40,14 62,27 62,53 40,66 18,53 18,27" fill="#1a1a2e"/>
+    <text x="40" y="46" text-anchor="middle" font-size="22" fill="#e60012" font-weight="bold" font-family="monospace">AI</text>
+    <circle cx="40" cy="36" r="3" fill="#e60012" opacity=".5"/>
+  </svg>`,
+
+  mmp: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="28" width="28" height="28" rx="4" fill="#2a2a2a"/>
+    <rect x="44" y="8" width="28" height="28" rx="4" fill="#e60012" opacity=".8"/>
+    <rect x="44" y="44" width="28" height="28" rx="4" fill="#444"/>
+    <line x1="22" y1="28" x2="58" y2="36" stroke="#e60012" stroke-width="2" stroke-dasharray="4 3"/>
+    <line x1="22" y1="56" x2="58" y2="58" stroke="#e60012" stroke-width="2" stroke-dasharray="4 3"/>
+  </svg>`,
+
+  meviy2d: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="10" width="50" height="60" rx="4" fill="#2a2a2a"/>
+    <rect x="14" y="14" width="42" height="52" rx="3" fill="#1a1a2e"/>
+    <line x1="20" y1="26" x2="50" y2="26" stroke="#e60012" stroke-width="2"/>
+    <line x1="20" y1="34" x2="42" y2="34" stroke="#888" stroke-width="1.5"/>
+    <line x1="20" y1="42" x2="46" y2="42" stroke="#888" stroke-width="1.5"/>
+    <line x1="20" y1="50" x2="38" y2="50" stroke="#888" stroke-width="1.5"/>
+    <rect x="56" y="48" width="14" height="22" rx="3" fill="#e60012" opacity=".9"/>
+    <line x1="63" y1="52" x2="63" y2="60" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <line x1="59" y1="56" x2="67" y2="56" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </svg>`,
+
+  sensor: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="16" fill="none" stroke="#e60012" stroke-width="3"/>
+    <circle cx="40" cy="40" r="8" fill="#e60012" opacity=".7"/>
+    <circle cx="40" cy="40" r="3" fill="#fff"/>
+    <path d="M22 22 Q14 14 14 8" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M58 22 Q66 14 66 8" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M22 58 Q14 66 14 72" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M58 58 Q66 66 66 72" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="36" y="6" width="8" height="4" rx="1" fill="#2a2a2a"/>
+    <rect x="36" y="70" width="8" height="4" rx="1" fill="#2a2a2a"/>
+  </svg>`,
+
+  wire: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 30 Q20 30 20 40 Q20 50 30 50 L50 50 Q60 50 60 40 Q60 30 70 30" stroke="#e60012" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M10 50 Q20 50 20 40 Q20 30 30 30 L50 30 Q60 30 60 40 Q60 50 70 50" stroke="#2a2a2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <circle cx="10" cy="30" r="5" fill="#e60012"/>
+    <circle cx="10" cy="50" r="5" fill="#444"/>
+    <circle cx="70" cy="30" r="5" fill="#e60012"/>
+    <circle cx="70" cy="50" r="5" fill="#444"/>
+  </svg>`,
+};
+
+const TABS = {
+  mech: {
+    title: 'MECHANICAL PARTS',
+    subtitle: '메카니컬 부품 카테고리',
+    cats: [
+      { name:'프레임·지주', url:'https://jp.misumi-ec.com/vona2/mech_frame', count:'12,400품목', sub:'frame' },
+      { name:'나사·볼트', url:'https://jp.misumi-ec.com/vona2/mech_screw', count:'98,000품목', sub:'screw' },
+      { name:'스프링·핀', url:'https://jp.misumi-ec.com/vona2/mech_spring', count:'7,800품목', sub:'spring' },
+      { name:'베어링·회전', url:'https://jp.misumi-ec.com/vona2/mech_rotary', count:'31,000품목', sub:'bearing' },
+      { name:'직동부품', url:'https://jp.misumi-ec.com/vona2/mech_linear', count:'22,000품목', sub:'linear' },
+      { name:'공압기기', url:'https://jp.misumi-ec.com/vona2/mech_pneu', count:'45,000품목', sub:'pneu' },
+      { name:'모터·감속기', url:'https://jp.misumi-ec.com/vona2/mech_motor', count:'8,200품목', sub:'motor' },
+      { name:'센서·스위치', url:'https://jp.misumi-ec.com/vona2/mech_sensor', count:'18,000품목', sub:'sensor' },
+    ]
+  },
+  elec: {
+    title: 'ELECTRICAL PARTS',
+    subtitle: '전기계 부품 카테고리',
+    cats: [
+      { name:'하네스·커넥터', url:'https://jp.misumi-ec.com/vona2/ie_wire', count:'60,000품목', sub:'wire' },
+      { name:'제어·수배전', url:'https://jp.misumi-ec.com/vona2/ie_control', count:'15,000품목', sub:'control' },
+      { name:'산업용PC', url:'https://jp.misumi-ec.com/vona2/ie_ipc', count:'3,200품목', sub:'ipc' },
+      { name:'박스·외장', url:'https://jp.misumi-ec.com/vona2/ie_box', count:'8,100품목', sub:'box' },
+    ]
+  },
+  mold: {
+    title: 'MOLD PARTS',
+    subtitle: '금형계 부품 카테고리',
+    cats: [
+      { name:'프레스 금형부품', url:'https://jp.misumi-ec.com/vona2/press', count:'55,000품목', sub:'press' },
+      { name:'플라 금형부품', url:'https://jp.misumi-ec.com/vona2/mold', count:'40,000품목', sub:'mold' },
+      { name:'사출성형부품', url:'https://jp.misumi-ec.com/vona2/injection', count:'12,000품목', sub:'injection' },
+    ]
+  },
+  tool: {
+    title: 'CUTTING TOOLS',
+    subtitle: '절삭공구·가공용품 카테고리',
+    cats: [
+      { name:'절삭공구', url:'https://jp.misumi-ec.com/vona2/vm_cutting', count:'70,000품목', sub:'cutting' },
+      { name:'공작기 공구·치구', url:'https://jp.misumi-ec.com/vona2/vm_tooling', count:'28,000품목', sub:'tooling' },
+      { name:'측정공구·계측기', url:'https://jp.misumi-ec.com/vona2/vm_measuring', count:'22,000품목', sub:'measuring' },
+      { name:'연삭연마·절단', url:'https://jp.misumi-ec.com/vona2/vm_grinding', count:'15,000품목', sub:'grinding' },
+      { name:'수작업공구', url:'https://jp.misumi-ec.com/vona2/vm_handtool', count:'9,500품목', sub:'handtool' },
+      { name:'전동·공압공구', url:'https://jp.misumi-ec.com/vona2/vm_powertool', count:'6,700품목', sub:'powertool' },
+    ]
+  },
+  mro: {
+    title: 'MRO SUPPLIES',
+    subtitle: 'MRO·공장용 부자재 카테고리',
+    cats: [
+      { name:'화학제품', url:'https://jp.misumi-ec.com/vona2/vm_chemical', count:'5,200품목', sub:'chemical' },
+      { name:'안전·보호용품', url:'https://jp.misumi-ec.com/vona2/vm_safety', count:'7,800품목', sub:'safety' },
+      { name:'물류·보관용품', url:'https://jp.misumi-ec.com/vona2/vm_logistics', count:'6,400품목', sub:'logistics' },
+      { name:'환경·위생용품', url:'https://jp.misumi-ec.com/vona2/vm_healthcare', count:'3,100품목', sub:'healthcare' },
+      { name:'연구·실험용품', url:'https://jp.misumi-ec.com/vona2/vm_lab', count:'9,300품목', sub:'lab' },
+    ]
+  },
+  custom: {
+    title: 'CUSTOM PARTS',
+    subtitle: '특주부품·도면가공품',
+    cats: [
+      { name:'meviy AI 견적', url:'https://meviy.misumi-ec.com/ja-jp/', count:'3D도면 대응', sub:'meviy' },
+      { name:'meviy 마켓플레이스', url:'https://marketplace.meviy.misumi-ec.com/ja-jp/', count:'제조 파트너', sub:'mmp' },
+      { name:'meviy 2D', url:'https://meviy.misumi-ec.com/ja-jp/2dx/meviy2d/', count:'2D도면 대응', sub:'meviy2d' },
+    ]
+  }
+};
+
+// Sample products per sub-category
+const PRODUCTS = {
+  frame: [
+    { name:'알루미늄 프레임 8 시리즈', code:'HFSB8-40-500', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1514000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_frame/M1514000000/', badge:'당일출하' },
+    { name:'스틸 지주 클램프 세트', code:'PC8-B8', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_frame/M1509000000/', badge:'재고있음' },
+    { name:'앵글 브래킷 90°', code:'HBLFJ8', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1514000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_frame/', badge:'신제품' },
+    { name:'슬라이딩 너트 세트', code:'HNKK8-5', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3303000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_frame/', badge:'인기' },
+    { name:'알루미늄 캡 커버', code:'HKCP8-B', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3302000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_frame/', badge:'' },
+    { name:'프레임 연결 플레이트', code:'HFSP8', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_frame/', badge:'' },
+  ],
+  screw: [
+    { name:'육각 볼트 M6×20', code:'CBSTS6-20', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3301000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_screw/M3301000000/', badge:'당일출하' },
+    { name:'스테인리스 육각 너트 M8', code:'HNTS8', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3303000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_screw/M3303000000/', badge:'재고있음' },
+    { name:'플랜지 볼트 M5', code:'CSBFTS5', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3302000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_screw/', badge:'인기' },
+    { name:'와셔 M10 SUS316', code:'WSSS10-S3', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1803000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_screw/M1803000000/', badge:'당일출하' },
+    { name:'육각 렌치 볼트 M4×12', code:'CBSTS4-12', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3301000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_screw/', badge:'' },
+    { name:'셀프탭 나사 M3', code:'BSTPDS3', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3303000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_screw/', badge:'' },
+  ],
+  bearing: [
+    { name:'깊은 홈 볼 베어링 6204', code:'6204ZZ', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_rotary/', badge:'당일출하' },
+    { name:'선형 볼 부시 LME16', code:'LME16UU', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_rotary/', badge:'인기' },
+    { name:'로드 엔드 베어링 M16', code:'GEBJ16C', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1514000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_rotary/', badge:'재고있음' },
+    { name:'피로트 베어링 F6002ZZ', code:'F6002ZZ', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3302000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_rotary/', badge:'' },
+  ],
+  linear: [
+    { name:'리니어 샤프트 Φ20×500', code:'PSFJ20-500', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_linear/', badge:'당일출하' },
+    { name:'LM 가이드 SSR15XW2', code:'SSR15XW2Z+720LHH', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1803000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_linear/', badge:'인기' },
+    { name:'볼 나사 φ16 리드5', code:'BSHR1605-RRG0+380LF', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3301000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_linear/', badge:'당일출하' },
+    { name:'미니어처 LM 가이드 SSR9XW', code:'SSR9XW2Z+180LHH', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_linear/', badge:'' },
+  ],
+  pneu: [
+    { name:'실린더 CDJ2B16-50Z', code:'CDJ2B16-50Z', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_pneu/', badge:'당일출하' },
+    { name:'에어 소레노이드 밸브 5포트', code:'VFS5100-5FZD-03', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1514000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_pneu/', badge:'인기' },
+    { name:'에어 필터 레귤레이터', code:'AW30-03G-A', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3302000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_pneu/', badge:'재고있음' },
+    { name:'진공 패드 φ30 평형', code:'ZPT30BN-K6', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_pneu/', badge:'신제품' },
+  ],
+  press: [
+    { name:'둥근 펀치 φ10', code:'PDS10', img:'https://jp.misumi-ec.com/linked/recocategory/reco_P0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/press/P0100000000/P0101000000/', badge:'당일출하' },
+    { name:'다이 버튼 φ16', code:'DBDB16-20', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3303000000.jpg', url:'https://jp.misumi-ec.com/vona2/press/', badge:'인기' },
+    { name:'스프링 EUH-W 시리즈', code:'EUH-W20-25', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3302000000.jpg', url:'https://jp.misumi-ec.com/vona2/press/', badge:'재고있음' },
+    { name:'가이드 포스트 GP형', code:'GP20-150', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/press/', badge:'' },
+  ],
+  spring: [
+    { name:'압축 코일 스프링 SWP-A φ10', code:'WFSO10-30', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_spring/', badge:'당일출하' },
+    { name:'인장 코일 스프링', code:'WSSCR2-10', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_spring/', badge:'인기' },
+    { name:'테이퍼 핀 SUS304 φ6', code:'TPSS6-50', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3301000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_spring/', badge:'' },
+  ],
+  motor: [
+    { name:'스텝핑 모터 NEMA17', code:'PKP243D23A2', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_motor/', badge:'인기' },
+    { name:'기어드 모터 25W', code:'MLGM25-15', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_motor/', badge:'당일출하' },
+  ],
+  sensor: [
+    { name:'포토 센서 NPN PNP', code:'EX-13EA', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_sensor/', badge:'인기' },
+    { name:'근접 센서 M12', code:'E2E-X5ME1', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_sensor/', badge:'당일출하' },
+    { name:'리밋 스위치 표준형', code:'D4C-1620', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3301000000.jpg', url:'https://jp.misumi-ec.com/vona2/mech_sensor/', badge:'' },
+  ],
+  wire: [
+    { name:'M12 커넥터 4핀 케이블 2m', code:'CN-14-C2', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/ie_wire/', badge:'인기' },
+    { name:'단자대 8P', code:'XW5T-P1.5-8.3', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/ie_wire/', badge:'당일출하' },
+  ],
+  control: [
+    { name:'브레이커 2P 10A', code:'BH-D6-2P10A', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/ie_control/', badge:'인기' },
+    { name:'릴레이 24V DC 4A', code:'G2R-1-DC24', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/ie_control/', badge:'당일출하' },
+  ],
+  ipc: [
+    { name:'산업용 PC Celeron 박스형', code:'IPC-J1900', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/ie_ipc/', badge:'인기' },
+  ],
+  box: [
+    { name:'스틸 컨트롤 박스 200×200', code:'BOX-200S', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/ie_box/', badge:'인기' },
+    { name:'ABS 인클로저 IP66', code:'PB-150-IP66', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/ie_box/', badge:'당일출하' },
+  ],
+  mold: [
+    { name:'코어 핀 φ5×80', code:'CP5-80', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/mold/', badge:'인기' },
+    { name:'슬라이드 코어 가이드', code:'SCG-20', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/mold/', badge:'' },
+  ],
+  injection: [
+    { name:'이젝터 핀 φ3×120', code:'EP3-120', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/injection/', badge:'당일출하' },
+    { name:'핫런너 노즐 표준형', code:'HRN-STD', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/injection/', badge:'인기' },
+  ],
+  cutting: [
+    { name:'엔드밀 φ10 2날', code:'MHEO10-2', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_cutting/', badge:'인기' },
+    { name:'드릴 φ6 HSS', code:'MSDRH6', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_cutting/', badge:'당일출하' },
+    { name:'탭 M6×1.0 HSS', code:'MSTS6-1.0', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3301000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_cutting/', badge:'' },
+  ],
+  tooling: [
+    { name:'콜릿척 ER25 φ10', code:'ERMS25-10', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_tooling/', badge:'인기' },
+    { name:'페이스밀 φ50 4날', code:'SFAM50-4', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_tooling/', badge:'당일출하' },
+  ],
+  measuring: [
+    { name:'마이크로미터 0-25mm', code:'MDC-25MX', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_measuring/', badge:'인기' },
+    { name:'버니어 캘리퍼스 150mm', code:'CD-15CPX', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_measuring/', badge:'당일출하' },
+    { name:'다이얼 게이지 0.001mm', code:'2109S-10', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M3301000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_measuring/', badge:'' },
+  ],
+  grinding: [
+    { name:'와이어 컵 브러쉬 φ75', code:'WB-75-TW', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_grinding/', badge:'인기' },
+    { name:'다이아몬드 지석 #600', code:'WA-DG600', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_grinding/', badge:'' },
+  ],
+  handtool: [
+    { name:'토크 렌치 1/2인치', code:'TRQ-12-50', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_handtool/', badge:'인기' },
+    { name:'조합 렌치 세트 8pc', code:'CSPN-8SET', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M1509000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_handtool/', badge:'당일출하' },
+  ],
+  powertool: [
+    { name:'에어 드라이버 3.6N·m', code:'AD-S36', img:'https://jp.misumi-ec.com/linked/recocategory/reco_M0101000000.jpg', url:'https://jp.misumi-ec.com/vona2/vm_powertool/', badge:'인기' },
+  ],
+};
+
+// ─── WATOOL SVG ICONS ──────────────────────────────────────────────
+const WATOOL_SVG = {
+  lapping: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="40" cy="44" rx="26" ry="8" fill="#0055cc" opacity=".2"/>
+    <rect x="22" y="20" width="36" height="28" rx="4" fill="#1a2a4a"/>
+    <rect x="26" y="24" width="28" height="20" rx="3" fill="#0055cc" opacity=".5"/>
+    <path d="M26 30 Q40 26 54 30" stroke="white" stroke-width="1.5" fill="none"/>
+    <path d="M26 36 Q40 32 54 36" stroke="white" stroke-width="1.5" fill="none"/>
+    <path d="M26 42 Q40 38 54 42" stroke="white" stroke-width="1.5" fill="none"/>
+    <ellipse cx="40" cy="20" rx="14" ry="4" fill="#0055cc"/>
+    <rect x="36" y="48" width="8" height="10" rx="2" fill="#2a3a5a"/>
+  </svg>`,
+  airgrinder: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="12" y="28" width="36" height="22" rx="5" fill="#1a2a4a"/>
+    <rect x="48" y="33" width="20" height="8" rx="2" fill="#2a3a6a"/>
+    <circle cx="26" cy="39" r="7" fill="none" stroke="#0055cc" stroke-width="2.5"/>
+    <circle cx="26" cy="39" r="3" fill="#0055cc"/>
+    <rect x="24" y="50" width="14" height="16" rx="3" fill="#2a3a5a"/>
+    <rect x="27" y="54" width="8" height="8" rx="2" fill="#0055cc" opacity=".7"/>
+    <path d="M64 33 Q72 37 64 41" stroke="#0055cc" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>`,
+  moldparts: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="10" width="28" height="28" rx="3" fill="#1a2a4a"/>
+    <rect x="42" y="10" width="28" height="28" rx="3" fill="#2a3a6a"/>
+    <rect x="10" y="42" width="28" height="28" rx="3" fill="#2a3a6a"/>
+    <rect x="42" y="42" width="28" height="28" rx="3" fill="#1a2a4a"/>
+    <circle cx="40" cy="40" r="8" fill="#0055cc"/>
+    <circle cx="40" cy="40" r="4" fill="white" opacity=".4"/>
+    <line x1="24" y1="24" x2="56" y2="56" stroke="#0055cc" stroke-width="1.5" opacity=".4"/>
+    <line x1="56" y1="24" x2="24" y2="56" stroke="#0055cc" stroke-width="1.5" opacity=".4"/>
+  </svg>`,
+  abrasive: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="26" fill="none" stroke="#1a2a4a" stroke-width="8"/>
+    <circle cx="40" cy="40" r="26" fill="none" stroke="#0055cc" stroke-width="3" stroke-dasharray="10 6"/>
+    <circle cx="40" cy="40" r="10" fill="#1a2a4a"/>
+    <circle cx="40" cy="40" r="5" fill="#0055cc"/>
+    <rect x="37" y="62" width="6" height="10" rx="2" fill="#2a3a5a"/>
+  </svg>`,
+  tooling_wa: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="30" width="50" height="20" rx="4" fill="#1a2a4a"/>
+    <rect x="58" y="34" width="14" height="12" rx="3" fill="#2a3a6a"/>
+    <circle cx="20" cy="40" r="6" fill="none" stroke="#0055cc" stroke-width="2.5"/>
+    <circle cx="20" cy="40" r="2.5" fill="#0055cc"/>
+    <circle cx="36" cy="40" r="6" fill="none" stroke="#0055cc" stroke-width="2.5"/>
+    <circle cx="36" cy="40" r="2.5" fill="#0055cc"/>
+    <rect x="8" y="16" width="18" height="16" rx="3" fill="#2a3a6a"/>
+    <rect x="12" y="20" width="10" height="8" rx="2" fill="#0055cc" opacity=".5"/>
+  </svg>`,
+  model: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="14" y="14" width="52" height="40" rx="4" fill="#1a2a4a"/>
+    <rect x="18" y="18" width="44" height="32" rx="3" fill="#0a1530"/>
+    <polygon points="40,24 52,36 40,48 28,36" fill="none" stroke="#0055cc" stroke-width="2"/>
+    <circle cx="40" cy="36" r="4" fill="#0055cc"/>
+    <rect x="26" y="54" width="28" height="6" rx="2" fill="#2a3a6a"/>
+    <rect x="32" y="60" width="16" height="4" rx="1" fill="#1a2a4a"/>
+  </svg>`,
+  measuring_wa: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="36" width="60" height="14" rx="4" fill="#1a2a4a"/>
+    <rect x="14" y="40" width="52" height="6" rx="2" fill="#2a3a6a"/>
+    <line x1="22" y1="36" x2="22" y2="29" stroke="#0055cc" stroke-width="2"/>
+    <line x1="32" y1="36" x2="32" y2="32" stroke="#aac" stroke-width="1.5"/>
+    <line x1="42" y1="36" x2="42" y2="27" stroke="#0055cc" stroke-width="2"/>
+    <line x1="52" y1="36" x2="52" y2="32" stroke="#aac" stroke-width="1.5"/>
+    <line x1="62" y1="36" x2="62" y2="29" stroke="#0055cc" stroke-width="2"/>
+    <circle cx="40" cy="62" r="8" fill="none" stroke="#0055cc" stroke-width="2.5"/>
+    <line x1="40" y1="56" x2="40" y2="62" stroke="#0055cc" stroke-width="2" stroke-linecap="round"/>
+    <line x1="40" y1="62" x2="44" y2="66" stroke="#0055cc" stroke-width="2" stroke-linecap="round"/>
+  </svg>`,
+  vise: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="30" width="60" height="20" rx="3" fill="#1a2a4a"/>
+    <rect x="14" y="22" width="20" height="30" rx="3" fill="#2a3a6a"/>
+    <rect x="46" y="22" width="20" height="30" rx="3" fill="#2a3a6a"/>
+    <rect x="30" y="28" width="20" height="14" rx="2" fill="#0a1530"/>
+    <circle cx="40" cy="58" r="6" fill="#1a2a4a" stroke="#0055cc" stroke-width="2"/>
+    <rect x="38" y="58" width="14" height="4" rx="2" fill="#2a3a6a"/>
+    <rect x="16" y="26" width="16" height="4" rx="1" fill="#0055cc" opacity=".5"/>
+    <rect x="48" y="26" width="16" height="4" rx="1" fill="#0055cc" opacity=".5"/>
+  </svg>`,
+};
+
+// ─── WATOOL TABS ────────────────────────────────────────────────────
+const WATOOL_TABS = {
+  wt_lapping: {
+    title: '금형래핑 & 고광택소모품',
+    subtitle: '래핑·연마·고광택 소모품',
+    cats: [
+      { name:'다이아컴파운드', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001002', count:'다이아 연마제', sub:'wt_compound' },
+      { name:'다이아파우다', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001', count:'분말 연마재', sub:'wt_powder' },
+      { name:'고광택 양모·브러쉬', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001003', count:'고광택 소모품', sub:'wt_brush' },
+      { name:'다이아몬드줄·루비스톤', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001006', count:'줄·스톤류', sub:'wt_file' },
+      { name:'우드스틱', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001010', count:'래핑용 스틱', sub:'wt_woodstick' },
+      { name:'다이아몬드휠·시트', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001011', count:'휠·시트류', sub:'wt_wheel' },
+      { name:'사상마무리줄', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001012', count:'마무리 가공', sub:'wt_finish' },
+      { name:'피칼·래핑유·지그', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001013', count:'래핑 보조재', sub:'wt_oil' },
+    ],
+    svgKey: 'lapping',
+  },
+  wt_airtool: {
+    title: '금형에어공구 & 핸드피스',
+    subtitle: '에어공구·전동공구·핸드피스',
+    cats: [
+      { name:'금형 그라인더(일자)', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002001', count:'일자형 그라인더', sub:'wt_grinder_s' },
+      { name:'금형 그라인더(앵글)', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002002', count:'앵글형 그라인더', sub:'wt_grinder_a' },
+      { name:'NSK 그라인더(모터)', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002003', count:'모터형', sub:'wt_nsk' },
+      { name:'에어 왕복 사상기', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002004', count:'왕복형', sub:'wt_recipro' },
+      { name:'에어 좌우 사상기', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002005', count:'좌우형', sub:'wt_lateral' },
+      { name:'전동 핸드피스', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002007', count:'전기 핸드피스', sub:'wt_handpiece' },
+      { name:'초음파 커팅기', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002014', count:'초음파 절단기', sub:'wt_ultrasonic' },
+      { name:'에어공구 소모품', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002006', count:'비트·소모품', sub:'wt_consumable' },
+    ],
+    svgKey: 'airgrinder',
+  },
+  wt_moldpart: {
+    title: '금형부품 & 사출표준부품',
+    subtitle: '금형부품·사출성형 표준부품',
+    cats: [
+      { name:'날짜(문자)코어', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010002', count:'날짜·문자 코어', sub:'wt_datecode' },
+      { name:'로케트링', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010', count:'위치결정 링', sub:'wt_locring' },
+      { name:'리턴핀', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010008', count:'리턴핀', sub:'wt_returnpin' },
+      { name:'이젝터핀·부시', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010', count:'이젝터 부품', sub:'wt_ejector' },
+      { name:'스프루부시·러너', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010', count:'스프루 관련', sub:'wt_sprue' },
+    ],
+    svgKey: 'moldparts',
+  },
+  wt_abrasive: {
+    title: '연마공구 & 마그네트공구',
+    subtitle: '연마·자석 공구류',
+    cats: [
+      { name:'마그네트 공구', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=008', count:'마그네틱 공구', sub:'wt_magnet' },
+      { name:'연마·샌딩공구', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=008', count:'연마 공구', sub:'wt_sanding' },
+      { name:'고무지석·추지석', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001008', count:'지석류', sub:'wt_stone' },
+    ],
+    svgKey: 'abrasive',
+  },
+  wt_tooling: {
+    title: '툴링공구 & 금형제작기기',
+    subtitle: '툴링·금형 제작 장비',
+    cats: [
+      { name:'툴링공구', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=003', count:'금형 툴링', sub:'wt_tool' },
+      { name:'금형제작기기', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=003', count:'제작 기기', sub:'wt_machine' },
+      { name:'파워바이스&밀링치공구', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=009', count:'바이스·밀링', sub:'wt_vise' },
+    ],
+    svgKey: 'tooling_wa',
+  },
+  wt_model: {
+    title: '모형제작 & 소형공작기계',
+    subtitle: '모형·소형 공작기계',
+    cats: [
+      { name:'소형 선반·밀링', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=004', count:'소형 공작기계', sub:'wt_lathe' },
+      { name:'모형제작 공구', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=004', count:'모형 공구', sub:'wt_model_tool' },
+    ],
+    svgKey: 'model',
+  },
+  wt_measure: {
+    title: '측정공구 & 조명확대경',
+    subtitle: '측정·검사·조명 공구',
+    cats: [
+      { name:'측정공구', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=005', count:'측정 공구', sub:'wt_gauge' },
+      { name:'조명확대경', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=005', count:'확대·조명 기기', sub:'wt_magnifier' },
+    ],
+    svgKey: 'measuring_wa',
+  },
+};
+
+// ─── WATOOL SAMPLE PRODUCTS ─────────────────────────────────────────
+const WATOOL_PRODUCTS = {
+  wt_compound: [
+    { name:'다이아컴파운드 #8000 (다이아파우다)', code:'DC-8000', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001002', badge:'인기' },
+    { name:'다이아컴파운드 #3000', code:'DC-3000', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001002', badge:'' },
+    { name:'다이아컴파운드 세트 (6종)', code:'DC-SET6', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001002', badge:'세트' },
+  ],
+  wt_brush: [
+    { name:'고광택 양모 패드', code:'WP-100', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001003', badge:'인기' },
+    { name:'고광택 브러쉬 (돈모)', code:'WB-50', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001003', badge:'' },
+    { name:'광택용 페파 세트', code:'PP-SET', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=001004', badge:'' },
+  ],
+  wt_grinder_s: [
+    { name:'금형 일자 그라인더 ø3.0', code:'AG-S30', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002001', badge:'인기' },
+    { name:'금형 일자 그라인더 ø6.0', code:'AG-S60', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002001', badge:'' },
+    { name:'일자형 그라인더 소모비트', code:'AG-BIT', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002006', badge:'' },
+  ],
+  wt_recipro: [
+    { name:'에어 왕복 사상기 AF-5A', code:'AF-5A', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002004', badge:'인기' },
+    { name:'에어 왕복 사상기 AF-3A', code:'AF-3A', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002004', badge:'' },
+  ],
+  wt_ultrasonic: [
+    { name:'혼다 초음파커터 ZO-91', code:'ZO-91', url:'https://www.watool.co.kr/goods/goods_view.php?goodsNo=1000001360', badge:'인기' },
+    { name:'초음파 사상기 본체', code:'US-200', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=002014', badge:'' },
+  ],
+  wt_datecode: [
+    { name:'날짜코어 월 (1~12)', code:'DC-MONTH', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010002', badge:'' },
+    { name:'날짜코어 년도', code:'DC-YEAR', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010002', badge:'' },
+    { name:'문자코어 세트', code:'DC-CHAR', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010002', badge:'세트' },
+  ],
+  wt_returnpin: [
+    { name:'금형 리턴핀 ø8', code:'RP-08', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010008', badge:'' },
+    { name:'금형 리턴핀 ø12', code:'RP-12', url:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010008', badge:'인기' },
+    { name:'미진금형 로케트링 관통타입', code:'LR-PT', url:'https://www.watool.co.kr/goods/goods_view.php?goodsNo=1000001041', badge:'' },
+  ],
+};
+
+// Default category SVG for watool (reuse watool_svg mapping)
+const WATOOL_CAT_SVG_MAP = {
+  wt_lapping: 'lapping', wt_airtool: 'airgrinder', wt_moldpart: 'moldparts',
+  wt_abrasive: 'abrasive', wt_tooling: 'tooling_wa', wt_model: 'model',
+  wt_measure: 'measuring_wa',
+};
+// per-sub fallback
+const WATOOL_SUB_SVG = {
+  wt_compound:'lapping', wt_powder:'lapping', wt_brush:'lapping', wt_file:'abrasive',
+  wt_woodstick:'lapping', wt_wheel:'abrasive', wt_finish:'abrasive', wt_oil:'lapping',
+  wt_grinder_s:'airgrinder', wt_grinder_a:'airgrinder', wt_nsk:'airgrinder',
+  wt_recipro:'airgrinder', wt_lateral:'airgrinder', wt_handpiece:'airgrinder',
+  wt_ultrasonic:'airgrinder', wt_consumable:'airgrinder',
+  wt_datecode:'moldparts', wt_locring:'moldparts', wt_returnpin:'moldparts',
+  wt_ejector:'moldparts', wt_sprue:'moldparts',
+  wt_magnet:'abrasive', wt_sanding:'abrasive', wt_stone:'abrasive',
+  wt_tool:'tooling_wa', wt_machine:'tooling_wa', wt_vise:'vise',
+  wt_lathe:'model', wt_model_tool:'model',
+  wt_gauge:'measuring_wa', wt_magnifier:'measuring_wa',
+};
+
+// ─── SITE STATE ─────────────────────────────────────────────────────
+let currentSite = 'misumi'; // 'misumi' | 'watool' | 'omron' | 'misumi_kr' | 'heishin'
+
+// ─── OMRON SVG ICONS ────────────────────────────────────────────────
+const OMRON_SVG = {
+  om_sensor: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="20" fill="none" stroke="#cc0000" stroke-width="4"/>
+    <circle cx="40" cy="40" r="10" fill="#cc0000" opacity=".7"/>
+    <circle cx="40" cy="40" r="4" fill="white"/>
+    <path d="M20 20 Q12 12 12 6" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M60 20 Q68 12 68 6" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M20 60 Q12 68 12 74" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M60 60 Q68 68 68 74" stroke="#444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </svg>`,
+  om_plc: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="14" width="60" height="52" rx="4" fill="#2a2a2a"/>
+    <rect x="14" y="18" width="52" height="44" rx="3" fill="#1a1a2e"/>
+    <rect x="18" y="22" width="24" height="16" rx="2" fill="#cc0000" opacity=".8"/>
+    <rect x="46" y="22" width="16" height="6" rx="1" fill="#444"/>
+    <rect x="46" y="30" width="16" height="4" rx="1" fill="#333"/>
+    <circle cx="22" cy="48" r="4" fill="#cc0000"/>
+    <circle cx="34" cy="48" r="4" fill="#00aa44"/>
+    <rect x="44" y="45" width="18" height="6" rx="3" fill="#555"/>
+    <rect x="18" y="54" width="40" height="4" rx="1" fill="#333"/>
+  </svg>`,
+  om_relay: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="14" y="20" width="52" height="40" rx="4" fill="#2a2a2a"/>
+    <rect x="18" y="24" width="44" height="32" rx="3" fill="#3a3a3a"/>
+    <rect x="22" y="28" width="16" height="20" rx="2" fill="#cc0000" opacity=".7"/>
+    <rect x="42" y="28" width="16" height="8" rx="2" fill="#444"/>
+    <rect x="42" y="38" width="16" height="6" rx="2" fill="#333"/>
+    <circle cx="58" cy="52" r="3" fill="#cc0000"/>
+    <circle cx="22" cy="64" r="4" fill="#555"/>
+    <circle cx="36" cy="64" r="4" fill="#555"/>
+    <circle cx="50" cy="64" r="4" fill="#555"/>
+    <circle cx="64" cy="64" r="4" fill="#555"/>
+  </svg>`,
+  om_switch: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="24" width="60" height="32" rx="16" fill="#2a2a2a"/>
+    <circle cx="56" cy="40" r="12" fill="#cc0000"/>
+    <circle cx="56" cy="40" r="6" fill="white" opacity=".9"/>
+    <rect x="18" y="36" width="22" height="8" rx="2" fill="#444"/>
+  </svg>`,
+  om_servo: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="18" width="42" height="44" rx="5" fill="#2a2a2a"/>
+    <rect x="12" y="22" width="34" height="36" rx="3" fill="#3a3a3a"/>
+    <circle cx="29" cy="40" r="10" fill="none" stroke="#cc0000" stroke-width="3"/>
+    <circle cx="29" cy="40" r="4" fill="#cc0000"/>
+    <rect x="50" y="33" width="22" height="14" rx="3" fill="#444"/>
+    <rect x="70" y="35" width="4" height="10" rx="1" fill="#888"/>
+    <line x1="14" y1="18" x2="14" y2="12" stroke="#cc0000" stroke-width="2.5"/>
+    <line x1="22" y1="18" x2="22" y2="12" stroke="#cc0000" stroke-width="2.5"/>
+  </svg>`,
+  om_safety: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 8 L66 20 L66 44 Q66 62 40 72 Q14 62 14 44 L14 20 Z" fill="#2a2a2a"/>
+    <path d="M40 14 L60 24 L60 44 Q60 58 40 66 Q20 58 20 44 L20 24 Z" fill="#3a1a1a"/>
+    <path d="M30 40 L38 48 L54 30" stroke="#cc0000" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+  om_robot: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="24" y="30" width="32" height="30" rx="4" fill="#2a2a2a"/>
+    <rect x="28" y="8" width="24" height="24" rx="12" fill="#3a3a3a"/>
+    <circle cx="34" cy="18" r="4" fill="#cc0000"/>
+    <circle cx="46" cy="18" r="4" fill="#cc0000"/>
+    <rect x="36" y="24" width="8" height="4" rx="1" fill="#cc0000" opacity=".7"/>
+    <rect x="8" y="34" width="16" height="8" rx="3" fill="#444"/>
+    <rect x="56" y="34" width="16" height="8" rx="3" fill="#444"/>
+    <rect x="28" y="60" width="8" height="12" rx="2" fill="#333"/>
+    <rect x="44" y="60" width="8" height="12" rx="2" fill="#333"/>
+  </svg>`,
+  om_motion: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="20" width="64" height="40" rx="4" fill="#2a2a2a"/>
+    <rect x="12" y="24" width="56" height="32" rx="3" fill="#1a1a2e"/>
+    <path d="M18 40 L30 30 L42 46 L54 34 L66 40" stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="30" cy="30" r="3" fill="#cc0000"/>
+    <circle cx="42" cy="46" r="3" fill="#cc0000"/>
+    <circle cx="54" cy="34" r="3" fill="#cc0000"/>
+  </svg>`,
+  om_fa: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="10" width="28" height="28" rx="3" fill="#2a2a2a"/>
+    <rect x="46" y="10" width="28" height="28" rx="3" fill="#cc0000" opacity=".8"/>
+    <rect x="6" y="46" width="28" height="28" rx="3" fill="#444"/>
+    <rect x="46" y="46" width="28" height="28" rx="3" fill="#2a2a2a"/>
+    <line x1="34" y1="24" x2="46" y2="24" stroke="#cc0000" stroke-width="2.5" stroke-dasharray="3 2"/>
+    <line x1="20" y1="38" x2="20" y2="46" stroke="#cc0000" stroke-width="2.5" stroke-dasharray="3 2"/>
+    <line x1="60" y1="38" x2="60" y2="46" stroke="#cc0000" stroke-width="2.5" stroke-dasharray="3 2"/>
+    <circle cx="40" cy="40" r="6" fill="#cc0000" opacity=".5"/>
+  </svg>`,
+  om_connect: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="28" width="24" height="24" rx="3" fill="#2a2a2a"/>
+    <rect x="46" y="28" width="24" height="24" rx="3" fill="#2a2a2a"/>
+    <rect x="14" y="32" width="16" height="16" rx="2" fill="#3a3a3a"/>
+    <rect x="50" y="32" width="16" height="16" rx="2" fill="#3a3a3a"/>
+    <line x1="34" y1="40" x2="46" y2="40" stroke="#cc0000" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="34" cy="40" r="3" fill="#cc0000"/>
+    <circle cx="46" cy="40" r="3" fill="#cc0000"/>
+    <rect x="16" y="36" width="4" height="8" rx="1" fill="#cc0000" opacity=".7"/>
+    <rect x="24" y="36" width="4" height="8" rx="1" fill="#cc0000" opacity=".7"/>
+    <rect x="52" y="36" width="4" height="8" rx="1" fill="#cc0000" opacity=".7"/>
+    <rect x="60" y="36" width="4" height="8" rx="1" fill="#cc0000" opacity=".7"/>
+  </svg>`,
+};
+
+// ─── OMRON TABS ─────────────────────────────────────────────────────
+const OMRON_TABS = {
+  om_sensing: {
+    title: '센서 & 비전',
+    subtitle: '센싱 & 비전 시스템',
+    cats: [
+      { name:'근접 센서', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_sensor' },
+      { name:'포토 센서', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_sensor' },
+      { name:'광화이버 센서', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_sensor' },
+      { name:'비전 시스템', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_sensor' },
+      { name:'변위 센서', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_sensor' },
+      { name:'세이프티 센서', url:'https://www.ia.omron.co.kr/products/products', count:'안전 대응', sub:'om_safety' },
+    ],
+  },
+  om_control: {
+    title: 'FA 제어기기',
+    subtitle: 'PLC·타이머·카운터·디스플레이',
+    cats: [
+      { name:'머신 오토메이션 컨트롤러', url:'https://www.ia.omron.co.kr/products/products', count:'NJ/NX 시리즈', sub:'om_plc' },
+      { name:'프로그래머블 컨트롤러(PLC)', url:'https://www.ia.omron.co.kr/products/products', count:'CP/CJ 시리즈', sub:'om_plc' },
+      { name:'타이머·카운터', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_fa' },
+      { name:'인버터', url:'https://www.ia.omron.co.kr/products/products', count:'MX2 시리즈', sub:'om_servo' },
+      { name:'산업용 PC 플랫폼', url:'https://www.ia.omron.co.kr/products/products', count:'IPC 시리즈', sub:'om_fa' },
+    ],
+  },
+  om_drive: {
+    title: '서보 & 모션',
+    subtitle: '서보드라이버·모션 컨트롤러',
+    cats: [
+      { name:'서보 드라이버', url:'https://www.ia.omron.co.kr/products/products', count:'G5/G7 시리즈', sub:'om_servo' },
+      { name:'서보 모터', url:'https://www.ia.omron.co.kr/products/products', count:'1S/G5 시리즈', sub:'om_servo' },
+      { name:'모션 컨트롤러(PMAC)', url:'https://www.ia.omron.co.kr/products/products', count:'다축 대응', sub:'om_motion' },
+      { name:'스텝핑 드라이버', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_servo' },
+    ],
+  },
+  om_safety: {
+    title: '세이프티 기기',
+    subtitle: '안전 라이트 커튼·세이프티 컨트롤러',
+    cats: [
+      { name:'세이프티 라이트 커튼', url:'https://www.ia.omron.co.kr/products/products', count:'F3SG 시리즈', sub:'om_safety' },
+      { name:'세이프티 컨트롤러', url:'https://www.ia.omron.co.kr/products/products', count:'G9SP 시리즈', sub:'om_safety' },
+      { name:'세이프티 도어 스위치', url:'https://www.ia.omron.co.kr/products/products', count:'D40A 시리즈', sub:'om_safety' },
+      { name:'비상 정지용 스위치', url:'https://www.ia.omron.co.kr/products/products', count:'A165E 시리즈', sub:'om_switch' },
+    ],
+  },
+  om_robotics: {
+    title: '로보틱스',
+    subtitle: '산업용·모바일·스칼라 로봇',
+    cats: [
+      { name:'산업용 로봇', url:'https://www.ia.omron.co.kr/products/products', count:'TM 협동 로봇', sub:'om_robot' },
+      { name:'모바일 로봇(AMR)', url:'https://www.ia.omron.co.kr/products/products', count:'MD-650', sub:'om_robot' },
+      { name:'병렬 로봇', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_robot' },
+      { name:'스칼라 로봇', url:'https://www.ia.omron.co.kr/products/products', count:'다수 시리즈', sub:'om_robot' },
+    ],
+  },
+  om_switch_relay: {
+    title: '릴레이 & 스위치',
+    subtitle: '릴레이·스위치·커넥터 부품',
+    cats: [
+      { name:'일반 릴레이', url:'https://www.ia.omron.co.kr/products/products', count:'G2R 시리즈', sub:'om_relay' },
+      { name:'솔리드스테이트 릴레이', url:'https://www.ia.omron.co.kr/products/products', count:'G3NA 시리즈', sub:'om_relay' },
+      { name:'마이크로 스위치', url:'https://www.ia.omron.co.kr/products/products', count:'D2F 시리즈', sub:'om_switch' },
+      { name:'누름버튼 스위치', url:'https://www.ia.omron.co.kr/products/products', count:'A22 시리즈', sub:'om_switch' },
+      { name:'커넥터', url:'https://www.ia.omron.co.kr/products/products', count:'XW 시리즈', sub:'om_connect' },
+    ],
+  },
+};
+
+const OMRON_PRODUCTS = {
+  om_sensor: [
+    { name:'근접 센서 E2E 시리즈 M12', code:'E2E-X5ME1', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+    { name:'포토 센서 E3Z 시리즈', code:'E3Z-D61', url:'https://www.ia.omron.co.kr/products/products', badge:'당일출하' },
+    { name:'비전 시스템 FHV7 시리즈', code:'FHV7-C004-S08', url:'https://www.ia.omron.co.kr/products/products', badge:'신제품' },
+  ],
+  om_plc: [
+    { name:'NJ 시리즈 머신 오토메이션 컨트롤러', code:'NJ301-1100', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+    { name:'CP1H PLC (내장 I/O 40점)', code:'CP1H-X40DT-D', url:'https://www.ia.omron.co.kr/products/products', badge:'당일출하' },
+  ],
+  om_relay: [
+    { name:'일반 릴레이 G2R-1 DC24V', code:'G2R-1-DC24', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+    { name:'솔리드스테이트 릴레이 G3NA', code:'G3NA-210B DC5-24', url:'https://www.ia.omron.co.kr/products/products', badge:'' },
+  ],
+  om_servo: [
+    { name:'G5 서보 드라이버 200W', code:'R88D-KN02H-ECT', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+    { name:'1S 서보 모터 400W', code:'R88M-1M40030T-S2', url:'https://www.ia.omron.co.kr/products/products', badge:'' },
+  ],
+  om_safety: [
+    { name:'세이프티 라이트 커튼 F3SG-4RA', code:'F3SG-4RA0300P14', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+    { name:'세이프티 컨트롤러 G9SP-N10S', code:'G9SP-N10S', url:'https://www.ia.omron.co.kr/products/products', badge:'' },
+  ],
+  om_robot: [
+    { name:'TM5M-700 협동 로봇 (5kg)', code:'TM5M-700', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+    { name:'MD-650 모바일 로봇(AMR)', code:'MD-650', url:'https://www.ia.omron.co.kr/products/products', badge:'신제품' },
+  ],
+  om_switch: [
+    { name:'마이크로 스위치 D2F-01L', code:'D2F-01L', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+    { name:'A22 누름버튼 스위치 φ22', code:'A22NL-MNA-TAA-G102-AA', url:'https://www.ia.omron.co.kr/products/products', badge:'' },
+  ],
+  om_motion: [
+    { name:'모션 컨트롤러 PMAC Power PMAC', code:'ACC-24E3A', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+  ],
+  om_fa: [
+    { name:'산업용 PC 플랫폼 NYB3', code:'NYB3-31000', url:'https://www.ia.omron.co.kr/products/products', badge:'' },
+    { name:'인버터 MX2 시리즈 0.4kW', code:'3G3MX2-A2004', url:'https://www.ia.omron.co.kr/products/products', badge:'인기' },
+  ],
+  om_connect: [
+    { name:'XW 시리즈 커넥터 M12 4핀', code:'XW3D-P4251', url:'https://www.ia.omron.co.kr/products/products', badge:'' },
+  ],
+};
+
+// ─── 한국미스미 경제형 SVG ────────────────────────────────────────
+const MISUMI_KR_SVG = {
+  mkr_frame: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="8" width="10" height="64" rx="3" fill="#005bac"/>
+    <rect x="62" y="8" width="10" height="64" rx="3" fill="#005bac"/>
+    <rect x="8" y="8" width="64" height="10" rx="3" fill="#0077cc"/>
+    <rect x="8" y="62" width="64" height="10" rx="3" fill="#0077cc"/>
+    <rect x="22" y="22" width="6" height="36" rx="2" fill="#005bac"/>
+    <rect x="52" y="22" width="6" height="36" rx="2" fill="#005bac"/>
+    <rect x="22" y="22" width="36" height="6" rx="2" fill="#005bac" opacity=".7"/>
+    <rect x="22" y="52" width="36" height="6" rx="2" fill="#005bac" opacity=".7"/>
+    <text x="40" y="44" text-anchor="middle" font-size="10" fill="white" font-weight="bold" font-family="monospace">KR</text>
+  </svg>`,
+  mkr_screw: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="36" y="6" width="8" height="46" rx="2" fill="#2a2a2a"/>
+    <rect x="28" y="6" width="24" height="10" rx="3" fill="#005bac"/>
+    <line x1="36" y1="18" x2="44" y2="18" stroke="#005bac" stroke-width="2"/>
+    <line x1="36" y1="26" x2="44" y2="26" stroke="#005bac" stroke-width="2"/>
+    <line x1="36" y1="34" x2="44" y2="34" stroke="#005bac" stroke-width="2"/>
+    <line x1="36" y1="42" x2="44" y2="42" stroke="#005bac" stroke-width="2"/>
+    <polygon points="36,52 44,52 42,68 38,68" fill="#2a2a2a"/>
+    <circle cx="56" cy="62" r="10" fill="none" stroke="#005bac" stroke-width="3"/>
+    <circle cx="56" cy="62" r="4" fill="#005bac"/>
+  </svg>`,
+  mkr_linear: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="33" width="68" height="14" rx="7" fill="#444"/>
+    <rect x="6" y="36" width="68" height="8" rx="4" fill="#2a2a2a"/>
+    <rect x="22" y="24" width="20" height="22" rx="4" fill="#005bac"/>
+    <rect x="24" y="27" width="16" height="16" rx="3" fill="#003d80"/>
+    <rect x="10" y="38" width="8" height="4" rx="1" fill="#888"/>
+    <rect x="62" y="38" width="8" height="4" rx="1" fill="#888"/>
+  </svg>`,
+  mkr_coupling: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="40" r="16" fill="#2a2a2a" stroke="#005bac" stroke-width="3"/>
+    <circle cx="56" cy="40" r="16" fill="#2a2a2a" stroke="#005bac" stroke-width="3"/>
+    <rect x="30" y="36" width="20" height="8" rx="2" fill="#005bac"/>
+    <rect x="6" y="37" width="14" height="6" rx="2" fill="#444"/>
+    <rect x="60" y="37" width="14" height="6" rx="2" fill="#444"/>
+    <circle cx="24" cy="40" r="5" fill="#005bac" opacity=".6"/>
+    <circle cx="56" cy="40" r="5" fill="#005bac" opacity=".6"/>
+  </svg>`,
+  mkr_bearing: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="30" fill="none" stroke="#444" stroke-width="5"/>
+    <circle cx="40" cy="40" r="18" fill="none" stroke="#2a2a2a" stroke-width="5"/>
+    <circle cx="40" cy="40" r="8" fill="#005bac"/>
+    <circle cx="40" cy="13" r="4" fill="#005bac"/>
+    <circle cx="40" cy="67" r="4" fill="#005bac"/>
+    <circle cx="13" cy="40" r="4" fill="#005bac"/>
+    <circle cx="67" cy="40" r="4" fill="#005bac"/>
+  </svg>`,
+  mkr_roller: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="40" cy="50" rx="30" ry="12" fill="#2a2a2a"/>
+    <rect x="10" y="26" width="60" height="24" rx="2" fill="#3a3a3a"/>
+    <ellipse cx="40" cy="26" rx="30" ry="12" fill="#005bac"/>
+    <ellipse cx="40" cy="26" rx="18" ry="7" fill="#003d80"/>
+    <rect x="36" y="60" width="8" height="12" rx="2" fill="#555"/>
+  </svg>`,
+  mkr_gear: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="22" fill="none" stroke="#2a2a2a" stroke-width="6"/>
+    <circle cx="40" cy="40" r="10" fill="#005bac"/>
+    <circle cx="40" cy="40" r="4" fill="white" opacity=".7"/>
+    <rect x="36" y="8" width="8" height="10" rx="2" fill="#005bac"/>
+    <rect x="36" y="62" width="8" height="10" rx="2" fill="#005bac"/>
+    <rect x="8" y="36" width="10" height="8" rx="2" fill="#005bac"/>
+    <rect x="62" y="36" width="10" height="8" rx="2" fill="#005bac"/>
+  </svg>`,
+  mkr_stage: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="44" width="60" height="20" rx="4" fill="#2a2a2a"/>
+    <rect x="14" y="28" width="52" height="20" rx="3" fill="#3a3a3a"/>
+    <rect x="24" y="16" width="32" height="14" rx="3" fill="#005bac"/>
+    <rect x="30" y="12" width="20" height="6" rx="2" fill="#003d80"/>
+    <line x1="40" y1="16" x2="40" y2="28" stroke="#888" stroke-width="2"/>
+    <line x1="14" y1="48" x2="66" y2="48" stroke="#888" stroke-width="1.5"/>
+  </svg>`,
+};
+
+const MISUMI_KR_TABS = {
+  mkr_mech: {
+    title: '메카니컬 부품 (경제형)',
+    subtitle: 'FA 표준품·경제형 메카니컬 부품',
+    cats: [
+      { name:'알루미늄 프레임·지주', url:'https://kr.misumi-ec.com/vona2/mech_frame', count:'단납기 대응', sub:'mkr_frame' },
+      { name:'나사·볼트·너트', url:'https://kr.misumi-ec.com/vona2/mech_screw', count:'경제형 라인업', sub:'mkr_screw' },
+      { name:'직동부품·LM가이드', url:'https://kr.misumi-ec.com/vona2/mech_linear', count:'당일출하', sub:'mkr_linear' },
+      { name:'커플링·조인트', url:'https://kr.misumi-ec.com/vona2/mech_rotary', count:'경제형', sub:'mkr_coupling' },
+      { name:'베어링·베어링 유닛', url:'https://kr.misumi-ec.com/vona2/mech_rotary', count:'다수 시리즈', sub:'mkr_bearing' },
+      { name:'운반롤러·컨베어', url:'https://kr.misumi-ec.com/vona2/mech_frame', count:'2026 신제품', sub:'mkr_roller' },
+    ],
+  },
+  mkr_drive: {
+    title: '구동·전달 부품 (경제형)',
+    subtitle: '기어·모터·타이밍 전달 부품',
+    cats: [
+      { name:'평기어·기어모터', url:'https://kr.misumi-ec.com/vona2/mech_motor', count:'경제형', sub:'mkr_gear' },
+      { name:'AC모터', url:'https://kr.misumi-ec.com/vona2/mech_motor', count:'2025 추가', sub:'mkr_gear' },
+      { name:'타이밍 벨트·원형벨트', url:'https://kr.misumi-ec.com/vona2/mech_rotary', count:'경제형', sub:'mkr_roller' },
+    ],
+  },
+  mkr_auto: {
+    title: '자동화 스테이지 (경제형)',
+    subtitle: 'X/Z/회전·고니오 스테이지',
+    cats: [
+      { name:'X축 자동스테이지(크로스롤러)', url:'https://kr.misumi-ec.com/pr/vona/economy/', count:'±1μm 정밀', sub:'mkr_stage' },
+      { name:'X축 자동스테이지(리니어볼)', url:'https://kr.misumi-ec.com/pr/vona/economy/', count:'±1μm 정밀', sub:'mkr_stage' },
+      { name:'Z축 자동스테이지', url:'https://kr.misumi-ec.com/pr/vona/economy/', count:'경제형', sub:'mkr_stage' },
+      { name:'회전 자동스테이지', url:'https://kr.misumi-ec.com/pr/vona/economy/', count:'웜기어식', sub:'mkr_stage' },
+      { name:'고니오스테이지', url:'https://kr.misumi-ec.com/pr/vona/economy/', count:'볼나사식', sub:'mkr_stage' },
+    ],
+  },
+  mkr_control: {
+    title: '제어 부품 (경제형)',
+    subtitle: '릴레이·도어스위치·타워램프',
+    cats: [
+      { name:'산업용 릴레이·릴레이 소켓', url:'https://kr.misumi-ec.com/vona2/ie_control', count:'2026 신제품', sub:'mkr_screw' },
+      { name:'도어스위치·세이프티 도어', url:'https://kr.misumi-ec.com/vona2/ie_control', count:'경제형', sub:'mkr_frame' },
+      { name:'시그널 타워램프', url:'https://kr.misumi-ec.com/vona2/ie_control', count:'2026 신제품', sub:'mkr_screw' },
+    ],
+  },
+};
+
+const MISUMI_KR_PRODUCTS = {
+  mkr_frame: [
+    { name:'경제형 알루미늄 프레임 8-40', code:'HFSB8-40-500', url:'https://kr.misumi-ec.com/vona2/mech_frame', badge:'경제형' },
+    { name:'플랜지붙이너트 M6', code:'FNSTS6', url:'https://kr.misumi-ec.com/vona2/mech_frame', badge:'2026 신규' },
+  ],
+  mkr_screw: [
+    { name:'경제형 냄비작은나사 M3×6', code:'SNBS3-6', url:'https://kr.misumi-ec.com/vona2/mech_screw', badge:'경제형' },
+    { name:'경제형 탭핑나사 M3', code:'STPDS3', url:'https://kr.misumi-ec.com/vona2/mech_screw', badge:'경제형' },
+    { name:'경제형 산업용 릴레이 DC24V', code:'RELKR-24V', url:'https://kr.misumi-ec.com/vona2/ie_control', badge:'2026 신규' },
+  ],
+  mkr_linear: [
+    { name:'경제형 LM 가이드 SSR9', code:'SSR9XW2Z+180LHH', url:'https://kr.misumi-ec.com/vona2/mech_linear', badge:'당일출하' },
+    { name:'경제형 리니어 샤프트 φ12', code:'PSFJ12-300', url:'https://kr.misumi-ec.com/vona2/mech_linear', badge:'경제형' },
+  ],
+  mkr_coupling: [
+    { name:'경제형 커플링 죠형 클램핑', code:'CPJF-30-10-12', url:'https://kr.misumi-ec.com/vona2/mech_rotary', badge:'경제형' },
+    { name:'경제형 커플링 세트스크류', code:'CPJBS-25-8', url:'https://kr.misumi-ec.com/vona2/mech_rotary', badge:'인기' },
+  ],
+  mkr_bearing: [
+    { name:'베어링 유닛 UCFL205', code:'UCFL205', url:'https://kr.misumi-ec.com/vona2/mech_rotary', badge:'2025 신규' },
+    { name:'경제형 볼 베어링 6202', code:'6202ZZ', url:'https://kr.misumi-ec.com/vona2/mech_rotary', badge:'경제형' },
+  ],
+  mkr_roller: [
+    { name:'경제형 운반롤러 폭9mm형', code:'CR-W9', url:'https://kr.misumi-ec.com/vona2/mech_frame', badge:'2026 신규' },
+    { name:'경제형 원형벨트 φ4', code:'RBLT-4-1000', url:'https://kr.misumi-ec.com/vona2/mech_rotary', badge:'2025 신규' },
+    { name:'우레탄롤러 키홈붙이', code:'URWK-20', url:'https://kr.misumi-ec.com/vona2/mech_frame', badge:'경제형' },
+  ],
+  mkr_gear: [
+    { name:'경제형 평기어 모듈1.0 Z30', code:'GEARS1-30', url:'https://kr.misumi-ec.com/vona2/mech_motor', badge:'2025 신규' },
+    { name:'경제형 기어모터 6W', code:'MLGM06-60', url:'https://kr.misumi-ec.com/vona2/mech_motor', badge:'2026 신규' },
+    { name:'경제형 AC모터 25W', code:'MLAC25-4', url:'https://kr.misumi-ec.com/vona2/mech_motor', badge:'2025 신규' },
+  ],
+  mkr_stage: [
+    { name:'경제형 X축 자동스테이지 크로스롤러', code:'XMSS60', url:'https://kr.misumi-ec.com/pr/vona/economy/', badge:'경제형' },
+    { name:'경제형 회전 자동스테이지 웜기어', code:'RSTW60', url:'https://kr.misumi-ec.com/pr/vona/economy/', badge:'경제형' },
+  ],
+};
+
+// ─── HEISHIN MOHNO SVG ──────────────────────────────────────────────
+const HEISHIN_SVG = {
+  hs_dispenser: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="28" y="8" width="24" height="36" rx="4" fill="#1a7a3c"/>
+    <path d="M28 44 L24 70 Q24 74 40 74 Q56 74 56 70 L52 44 Z" fill="#145c2d"/>
+    <ellipse cx="40" cy="64" rx="10" ry="4" fill="#1a7a3c" opacity=".7"/>
+    <rect x="32" y="12" width="16" height="6" rx="2" fill="#22a050"/>
+    <rect x="30" y="20" width="20" height="20" rx="2" fill="#145c2d"/>
+    <circle cx="40" cy="30" r="6" fill="#1a7a3c"/>
+    <rect x="50" y="30" width="14" height="6" rx="3" fill="#333"/>
+    <path d="M38 72 Q40 76 42 72" stroke="white" stroke-width="2" fill="none"/>
+  </svg>`,
+  hs_controller: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="16" width="64" height="48" rx="4" fill="#2a2a2a"/>
+    <rect x="12" y="20" width="56" height="36" rx="3" fill="#1a2a1a"/>
+    <rect x="16" y="24" width="22" height="14" rx="2" fill="#1a7a3c" opacity=".8"/>
+    <rect x="42" y="24" width="22" height="6" rx="2" fill="#444"/>
+    <rect x="42" y="32" width="22" height="4" rx="2" fill="#333"/>
+    <circle cx="20" cy="46" r="4" fill="#1a7a3c"/>
+    <circle cx="32" cy="46" r="4" fill="#00aa44"/>
+    <rect x="44" y="43" width="20" height="6" rx="3" fill="#555"/>
+  </svg>`,
+  hs_system: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="24" width="30" height="32" rx="4" fill="#1a7a3c"/>
+    <rect x="44" y="24" width="30" height="32" rx="4" fill="#145c2d"/>
+    <path d="M36 40 Q40 34 44 40" stroke="#1a7a3c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="36" cy="40" r="4" fill="#1a7a3c"/>
+    <circle cx="44" cy="40" r="4" fill="#145c2d"/>
+    <rect x="10" y="28" width="22" height="24" rx="2" fill="#22a050" opacity=".5"/>
+    <rect x="48" y="28" width="22" height="24" rx="2" fill="#22a050" opacity=".3"/>
+    <path d="M18 50 Q22 44 26 50" stroke="white" stroke-width="2" fill="none"/>
+  </svg>`,
+  hs_needle: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="34" y="6" width="12" height="50" rx="4" fill="#2a2a2a"/>
+    <polygon points="34,56 46,56 44,74 36,74" fill="#1a7a3c"/>
+    <rect x="30" y="6" width="20" height="8" rx="3" fill="#145c2d"/>
+    <rect x="26" y="10" width="28" height="6" rx="2" fill="#1a7a3c"/>
+    <line x1="38" y1="20" x2="42" y2="20" stroke="#1a7a3c" stroke-width="2"/>
+    <line x1="38" y1="30" x2="42" y2="30" stroke="#1a7a3c" stroke-width="2"/>
+    <line x1="38" y1="40" x2="42" y2="40" stroke="#1a7a3c" stroke-width="2"/>
+  </svg>`,
+  hs_supply: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="16" y="12" width="48" height="48" rx="6" fill="#2a2a2a"/>
+    <rect x="20" y="16" width="40" height="40" rx="4" fill="#1a2a1a"/>
+    <ellipse cx="40" cy="42" rx="14" ry="6" fill="#1a7a3c" opacity=".8"/>
+    <ellipse cx="40" cy="36" rx="10" ry="4" fill="#1a7a3c" opacity=".5"/>
+    <ellipse cx="40" cy="30" rx="7" ry="3" fill="#1a7a3c" opacity=".3"/>
+    <rect x="36" y="8" width="8" height="6" rx="2" fill="#1a7a3c"/>
+    <rect x="36" y="60" width="8" height="10" rx="2" fill="#333"/>
+  </svg>`,
+};
+
+const HEISHIN_TABS = {
+  hs_dispenser: {
+    title: 'Mohno 디스펜서',
+    subtitle: '정량 토출·도포 디스펜서 본체',
+    cats: [
+      { name:'ND (표준모델)', url:'https://www.pump.co.kr/dispenser/products/nd.html', count:'저~고점도 대응', sub:'hs_dispenser' },
+      { name:'NDM (고부하 모델)', url:'https://www.pump.co.kr/dispenser/products/ndm.html', count:'초고점도 대응', sub:'hs_dispenser' },
+      { name:'HD (미소량 모델)', url:'https://www.pump.co.kr/dispenser/products/hd.html', count:'μL 레벨 정밀', sub:'hs_dispenser' },
+      { name:'HD-R (혐기성 대응)', url:'https://www.pump.co.kr/dispenser/products/hdr.html', count:'혐기성 접착제', sub:'hs_dispenser' },
+      { name:'NDL (Quick & Clean)', url:'https://www.pump.co.kr/dispenser/products/ndl.html', count:'세정성 특화', sub:'hs_dispenser' },
+      { name:'NVDL (호퍼 일체형)', url:'https://www.pump.co.kr/dispenser/products/nvdl.html', count:'소량다품종', sub:'hs_dispenser' },
+      { name:'2액 혼합 사양', url:'https://www.pump.co.kr/dispenser/products/2mix.html', count:'2액 혼합 정밀', sub:'hs_dispenser' },
+    ],
+  },
+  hs_system: {
+    title: '시스템 제품',
+    subtitle: 'Stiffener·Hose-Free·Multi-Wrapping',
+    cats: [
+      { name:'Mohno Dispenser for Stiffener', url:'https://www.pump.co.kr/dispenser/products/ssas.html', count:'액상 강판 보강재', sub:'hs_system' },
+      { name:'Hose-Free System', url:'https://www.pump.co.kr/dispenser/products/hfs.html', count:'충전식 시스템', sub:'hs_system' },
+      { name:'Heishin Multi-Wrapping System', url:'https://www.pump.co.kr/dispenser/products/mws.html', count:'다중구조 노즐', sub:'hs_system' },
+    ],
+  },
+  hs_controller: {
+    title: '컨트롤러',
+    subtitle: 'DPU-F600 / DPU-F120',
+    cats: [
+      { name:'DPU-F600 시리즈 (다기능)', url:'https://www.pump.co.kr/dispenser/products/dpuf600s.html', count:'New 다기능', sub:'hs_controller' },
+      { name:'DPU-F120 (기본형)', url:'https://www.pump.co.kr/dispenser/products/dpuf120.html', count:'기본 타입', sub:'hs_controller' },
+    ],
+  },
+  hs_accessory: {
+    title: '주변장치 & 액세서리',
+    subtitle: 'Wave Absorber·Regulator·노즐',
+    cats: [
+      { name:'Wave Absorber FIFO', url:'https://www.pump.co.kr/dispenser/products/wa.html', count:'공급량 안정화', sub:'hs_supply' },
+      { name:'Hybrid Regulator', url:'https://www.pump.co.kr/dispenser/products/hr.html', count:'공급압 안정화', sub:'hs_supply' },
+      { name:'공급 장치', url:'https://www.pump.co.kr/dispenser/products/ntd.html', count:'펌프·간이공급', sub:'hs_supply' },
+      { name:'Needle·노즐', url:'https://www.pump.co.kr/dispenser/products/needle.html', count:'다양한 형상', sub:'hs_needle' },
+    ],
+  },
+};
+
+const HEISHIN_PRODUCTS = {
+  hs_dispenser: [
+    { name:'Mohno Dispenser ND 표준 (저~고점도)', code:'ND-2', url:'https://www.pump.co.kr/dispenser/products/nd.html', badge:'표준형' },
+    { name:'Mohno Dispenser NDM 고부하', code:'NDM-3', url:'https://www.pump.co.kr/dispenser/products/ndm.html', badge:'초고점도' },
+    { name:'Mohno Dispenser HD 미소량', code:'HD-L10', url:'https://www.pump.co.kr/dispenser/products/hd.html', badge:'μL 정밀' },
+    { name:'Mohno Dispenser NDL Quick&Clean', code:'NDL-3', url:'https://www.pump.co.kr/dispenser/products/ndl.html', badge:'세정 특화' },
+    { name:'2액 혼합 사양 디스펜서', code:'2MIX-ND', url:'https://www.pump.co.kr/dispenser/products/2mix.html', badge:'2액 혼합' },
+  ],
+  hs_controller: [
+    { name:'DPU-F600 시리즈 다기능 컨트롤러', code:'DPU-F600', url:'https://www.pump.co.kr/dispenser/products/dpuf600s.html', badge:'신제품' },
+    { name:'DPU-F120 기본 컨트롤러', code:'DPU-F120', url:'https://www.pump.co.kr/dispenser/products/dpuf120.html', badge:'' },
+  ],
+  hs_system: [
+    { name:'Mohno Dispenser for Stiffener (액상 강판)', code:'SSAS-1', url:'https://www.pump.co.kr/dispenser/products/ssas.html', badge:'' },
+    { name:'Hose-Free System', code:'HFS-N', url:'https://www.pump.co.kr/dispenser/products/hfs.html', badge:'' },
+    { name:'Heishin Multi-Wrapping System', code:'MWS-2', url:'https://www.pump.co.kr/dispenser/products/mws.html', badge:'' },
+  ],
+  hs_supply: [
+    { name:'Wave Absorber FIFO', code:'WA-FIFO', url:'https://www.pump.co.kr/dispenser/products/wa.html', badge:'' },
+    { name:'Hybrid Regulator', code:'HR-1', url:'https://www.pump.co.kr/dispenser/products/hr.html', badge:'' },
+    { name:'공급 장치 (Mohno 펌프)', code:'NTD-10', url:'https://www.pump.co.kr/dispenser/products/ntd.html', badge:'' },
+  ],
+  hs_needle: [
+    { name:'스트레이트 니들 φ0.5', code:'NDL-0.5', url:'https://www.pump.co.kr/dispenser/products/needle.html', badge:'' },
+    { name:'앵글 노즐 φ1.0', code:'ANGL-1.0', url:'https://www.pump.co.kr/dispenser/products/needle.html', badge:'인기' },
+  ],
+};
+
+// ─── SVG ICON HELPERS ─────────────────────────────────────────────────
+const _si = (path, extra='') => `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;flex-shrink:0" ${extra}>${path}</svg>`;
+const NAV_ICONS = {
+  // MISUMI JP
+  mech:   _si('<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>'),
+  elec:   _si('<polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>'),
+  mold:   _si('<path d="M2 20h20M4 20V8l8-6 8 6v12"/><rect x="9" y="14" width="6" height="6"/>'),
+  tool:   _si('<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'),
+  mro:    _si('<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>'),
+  custom: _si('<line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>'),
+  // Watool
+  wt_lapping:  _si('<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>'),
+  wt_airtool:  _si('<path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"/><path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"/><path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/>'),
+  wt_moldpart: _si('<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>'),
+  wt_abrasive: _si('<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>'),
+  wt_tooling:  _si('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'),
+  wt_model:    _si('<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>'),
+  wt_measure:  _si('<path d="M2 12h20M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>'),
+  // Omron
+  om_sensing:     _si('<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/>'),
+  om_control:     _si('<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2v3H7zM11 8h2v3h-2zM15 8h2v3h-2z"/>'),
+  om_drive:       _si('<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>'),
+  om_safety:      _si('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'),
+  om_robotics:    _si('<rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 11V9M16 11V9"/>'),
+  om_switch_relay:_si('<path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14"/><path d="M2 20h20"/><path d="M14 12v.01"/>'),
+  // MISUMI KR
+  mkr_mech:   _si('<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>'),
+  mkr_drive:  _si('<circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>'),
+  mkr_auto:   _si('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>'),
+  mkr_control:_si('<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'),
+  // Heishin
+  hs_dispenser: _si('<path d="M12 2a5 5 0 0 1 5 5v3H7V7a5 5 0 0 1 5-5z"/><path d="M7 10v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V10"/><line x1="12" y1="14" x2="12" y2="18"/>'),
+  hs_system:    _si('<rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><path d="M17 17h.01M17 13v4h4"/>'),
+  hs_controller:_si('<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="13" cy="10" r="1" fill="currentColor"/><circle cx="17" cy="10" r="1" fill="currentColor"/>'),
+  hs_accessory: _si('<circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>'),
+};
+// Visit button SVG icons
+const _globe = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:6px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`;
+const _list  = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:6px"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>`;
+
+const SITE_CONFIG = {
+  misumi: {
+    navItems: [
+      { key:'mech',  icon:NAV_ICONS.mech,   label:'메카니컬 부품' },
+      { key:'elec',  icon:NAV_ICONS.elec,   label:'전기계' },
+      { key:'mold',  icon:NAV_ICONS.mold,   label:'금형계' },
+      { key:'tool',  icon:NAV_ICONS.tool,   label:'공구·소모품' },
+      { key:'mro',   icon:NAV_ICONS.mro,    label:'MRO 자재' },
+      { key:'custom',icon:NAV_ICONS.custom, label:'특주부품·도면' },
+    ],
+    defaultTab: 'mech',
+    tag1: '당일출고 대응', tag2: '135만 품목+',
+    stats: [ { label:'총 품목수', num:'135만' }, { label:'대응 메이커', num:'4000+' } ],
+    sidebarMakers: [
+      { label:'MISUMI', key:'misumi' }, { label:'THK', key:'thk' },
+      { label:'SMC', key:'smc' }, { label:'NSK', key:'nsk' },
+      { label:'CKD', key:'ckd' }, { label:'KEYENCE', key:'keyence' },
+      { label:'OMRON', key:'omron' },
+    ],
+    visitMain: { href:'https://jp.misumi-ec.com/', label:_globe+'MISUMI 사이트 방문' },
+    visitSub:  { href:'https://jp.misumi-ec.com/vona2/maker/', label:_list+'메이커 전체 목록' },
+    tabs: TABS,
+    products: PRODUCTS,
+    svgMap: CAT_SVG,
+    searchProduct: q => `https://jp.misumi-ec.com/vona2/result/?searchFlow=suggest&Keyword=${encodeURIComponent(q)}`,
+    searchMaker:   q => `https://jp.misumi-ec.com/vona2/maker/?searchFlow=search&Keyword=${encodeURIComponent(q)}`,
+  },
+  watool: {
+    navItems: [
+      { key:'wt_lapping',  icon:NAV_ICONS.wt_lapping,  label:'래핑·고광택소모품' },
+      { key:'wt_airtool',  icon:NAV_ICONS.wt_airtool,  label:'에어공구·핸드피스' },
+      { key:'wt_moldpart', icon:NAV_ICONS.wt_moldpart,  label:'금형·사출표준부품' },
+      { key:'wt_abrasive', icon:NAV_ICONS.wt_abrasive,  label:'연마·마그네트공구' },
+      { key:'wt_tooling',  icon:NAV_ICONS.wt_tooling,  label:'툴링·금형제작기기' },
+      { key:'wt_model',    icon:NAV_ICONS.wt_model,    label:'모형·소형공작기계' },
+      { key:'wt_measure',  icon:NAV_ICONS.wt_measure,  label:'측정·조명확대경' },
+    ],
+    defaultTab: 'wt_lapping',
+    tag1: '금형 전문몰', tag2: '직수입 유통',
+    stats: [ { label:'취급 카테고리', num:'7+' }, { label:'전문 브랜드', num:'6+' } ],
+    sidebarMakers: [
+      { label:'HONDA(혼다)', key:'혼다' }, { label:'NSK', key:'NSK' },
+      { label:'미진금형부품', key:'미진' }, { label:'슈퍼스톤', key:'슈퍼스톤' },
+      { label:'도이시', key:'도이시' }, { label:'툴파워', key:'툴파워' },
+    ],
+    visitMain: { href:'https://www.watool.co.kr/', label:_globe+'와툴 사이트 방문' },
+    visitSub:  { href:'https://www.watool.co.kr/goods/goods_list.php?cateCd=010', label:_list+'전체 제품 목록' },
+    tabs: WATOOL_TABS,
+    products: WATOOL_PRODUCTS,
+    svgMap: null,
+    searchProduct: q => `https://www.watool.co.kr/goods/goods_search.php?searchWord=${encodeURIComponent(q)}`,
+    searchMaker:   q => `https://www.watool.co.kr/goods/goods_search.php?searchWord=${encodeURIComponent(q)}`,
+  },
+  omron: {
+    navItems: [
+      { key:'om_sensing',     icon:NAV_ICONS.om_sensing,      label:'센서·비전' },
+      { key:'om_control',     icon:NAV_ICONS.om_control,      label:'FA 제어기기·PLC' },
+      { key:'om_drive',       icon:NAV_ICONS.om_drive,        label:'서보·모션' },
+      { key:'om_safety',      icon:NAV_ICONS.om_safety,       label:'세이프티 기기' },
+      { key:'om_robotics',    icon:NAV_ICONS.om_robotics,     label:'로보틱스' },
+      { key:'om_switch_relay',icon:NAV_ICONS.om_switch_relay, label:'릴레이·스위치' },
+    ],
+    defaultTab: 'om_sensing',
+    tag1: '산업 자동화', tag2: 'i-Automation!',
+    stats: [ { label:'글로벌 진출국', num:'150+' }, { label:'사업 연수', num:'90년+' } ],
+    sidebarMakers: [
+      { label:'OMRON', key:'OMRON' },
+    ],
+    visitMain: { href:'https://www.ia.omron.co.kr/products/products', label:_globe+'오므론 제품 목록' },
+    visitSub:  { href:'https://www.ia.omron.co.kr/', label:_list+'한국오므론 홈' },
+    tabs: OMRON_TABS,
+    products: OMRON_PRODUCTS,
+    svgMap: OMRON_SVG,
+    searchProduct: q => `https://www.ia.omron.co.kr/products/products`,
+    searchMaker:   q => `https://www.ia.omron.co.kr/products/products`,
+  },
+  misumi_kr: {
+    navItems: [
+      { key:'mkr_mech',    icon:NAV_ICONS.mkr_mech,    label:'메카니컬 부품' },
+      { key:'mkr_drive',   icon:NAV_ICONS.mkr_drive,   label:'구동·전달 부품' },
+      { key:'mkr_auto',    icon:NAV_ICONS.mkr_auto,    label:'자동화 스테이지' },
+      { key:'mkr_control', icon:NAV_ICONS.mkr_control, label:'제어 부품' },
+    ],
+    defaultTab: 'mkr_mech',
+    tag1: '경제형 FA 부품', tag2: '4천 브랜드·1300만점',
+    stats: [ { label:'총 품목수', num:'1300만' }, { label:'대응 브랜드', num:'4000+' } ],
+    sidebarMakers: [
+      { label:'MISUMI 경제형', key:'misumi' }, { label:'THK', key:'THK' },
+      { label:'SMC', key:'SMC' }, { label:'NSK', key:'NSK' },
+    ],
+    visitMain: { href:'https://kr.misumi-ec.com/', label:_globe+'한국미스미 사이트' },
+    visitSub:  { href:'https://kr.misumi-ec.com/pr/vona/economy/', label:_list+'경제형 기획전' },
+    tabs: MISUMI_KR_TABS,
+    products: MISUMI_KR_PRODUCTS,
+    svgMap: MISUMI_KR_SVG,
+    searchProduct: q => `https://kr.misumi-ec.com/vona2/result/?searchFlow=suggest&Keyword=${encodeURIComponent(q)}`,
+    searchMaker:   q => `https://kr.misumi-ec.com/vona2/maker/?searchFlow=search&Keyword=${encodeURIComponent(q)}`,
+  },
+  heishin: {
+    navItems: [
+      { key:'hs_dispenser',  icon:NAV_ICONS.hs_dispenser,  label:'Mohno 디스펜서' },
+      { key:'hs_system',     icon:NAV_ICONS.hs_system,     label:'시스템 제품' },
+      { key:'hs_controller', icon:NAV_ICONS.hs_controller, label:'컨트롤러' },
+      { key:'hs_accessory',  icon:NAV_ICONS.hs_accessory,  label:'주변장치·액세서리' },
+    ],
+    defaultTab: 'hs_dispenser',
+    tag1: 'Mohno Pump 방식', tag2: '고점도 액체 대응',
+    stats: [ { label:'대응 업계', num:'5+' }, { label:'디스펜서 모델', num:'7종' } ],
+    sidebarMakers: [
+      { label:'HEISHIN', key:'HEISHIN' },
+    ],
+    visitMain: { href:'https://www.pump.co.kr/dispenser/products/', label:_globe+'HEISHIN 제품 목록' },
+    visitSub:  { href:'https://www.pump.co.kr/dispenser/', label:_list+'Mohno Dispenser 홈' },
+    tabs: HEISHIN_TABS,
+    products: HEISHIN_PRODUCTS,
+    svgMap: HEISHIN_SVG,
+    searchProduct: q => `https://www.pump.co.kr/dispenser/products/`,
+    searchMaker:   q => `https://www.pump.co.kr/dispenser/products/`,
+  },
+};
+
+// ─── STATE ────────────────────────────────────────────────────────────
+let currentTab = 'mech';
+let currentSub = null;
+let onMainPage = true;
+let boltClicked = false;
+
+// ─── SITE SWITCH ──────────────────────────────────────────────────────
+function switchSite(site) {
+  currentSite = site;
+  const cfg = SITE_CONFIG[site];
+  // update buttons
+  document.querySelectorAll('.site-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('siteBtn-' + site).classList.add('active');
+  // apply color theme
+  const allSites = ['watool','omron','misumi_kr','heishin'];
+  allSites.forEach(s => {
+    document.body.classList.remove('site-' + s);
+    document.getElementById('mainNav').classList.remove(s + '-nav');
+  });
+  if (site !== 'misumi') {
+    document.body.classList.add('site-' + site);
+    document.getElementById('mainNav').classList.add(site + '-nav');
+  }
+  // update tags
+  document.getElementById('tag1').textContent = cfg.tag1;
+  document.getElementById('tag2').textContent = cfg.tag2;
+  // update stats panel
+  updateStats(cfg);
+  // update sidebar makers
+  const sidebarMakerList = document.getElementById('sidebarMakers');
+  sidebarMakerList.innerHTML = cfg.sidebarMakers.map(m =>
+    `<li onclick="openMaker('${m.key}')">${m.label}</li>`
+  ).join('');
+  // build nav
+  buildNav(cfg.navItems);
+  // render first tab
+  renderTab(cfg.defaultTab);
+}
+
+function buildNav(items) {
+  document.getElementById('navInner').innerHTML = items.map((item, i) =>
+    `<div class="nav-item${i===0?' active':''}" onclick="switchNav(this,'${item.key}')">
+      <span class="nav-icon">${item.icon}</span> ${item.label}
+    </div>`
+  ).join('');
+}
+
+// ─── INIT ──────────────────────────────────────────────────────────────
+function init() {
+  const cfg = SITE_CONFIG['misumi'];
+  buildNav(cfg.navItems);
+  // init sidebar makers
+  document.getElementById('sidebarMakers').innerHTML = cfg.sidebarMakers.map(m =>
+    `<li onclick="openMaker('${m.key}')">${m.label}</li>`
+  ).join('');
+  updateStats(cfg);
+  renderTab('mech');
+}
+
+function renderTab(tab) {
+  currentTab = tab;
+  currentSub = null;
+  const cfg = SITE_CONFIG[currentSite];
+  const data = cfg.tabs[tab];
+  if (!data) return;
+  document.getElementById('contentTitle').textContent = data.title;
+  document.getElementById('contentSubtitle').textContent = data.subtitle;
+  renderCategories(data.cats);
+  renderSidebar(data.cats);
+  document.getElementById('productsLabel').style.display = 'none';
+  document.getElementById('productsGrid').innerHTML = '';
+}
+
+function getSVG(sub) {
+  if (currentSite === 'misumi') return CAT_SVG[sub];
+  if (currentSite === 'watool') {
+    const key = WATOOL_SUB_SVG[sub] || 'lapping';
+    return WATOOL_SVG[key];
+  }
+  if (currentSite === 'omron') return OMRON_SVG[sub] || '';
+  if (currentSite === 'misumi_kr') return MISUMI_KR_SVG[sub] || '';
+  if (currentSite === 'heishin') return HEISHIN_SVG[sub] || '';
+  return '';
+}
+
+function updateStats(cfg) {
+  const el = document.getElementById('statItems');
+  if (!el) return;
+  el.innerHTML = '<div class="stat-grid">' +
+    (cfg.stats || []).map(s =>
+      '<div class="stat-card">' +
+        '<div class="stat-card-num">' + s.num + '</div>' +
+        '<div class="stat-card-label">' + s.label + '</div>' +
+      '</div>'
+    ).join('') +
+  '</div>';
+}
+
+function renderCategories(cats) {
+  const grid = document.getElementById('categoryGrid');
+  grid.innerHTML = cats.map((c,i) => `
+    <div class="cat-card" onclick="selectCategory('${c.sub}','${c.name}','${c.url}')" id="cat-${c.sub}" style="animation-delay:${i*0.05}s">
+      <div class="cat-svg-wrap">${getSVG(c.sub) || '<svg viewBox="0 0 80 80"><rect fill="#f0f0f0" width="80" height="80" rx="6"/></svg>'}</div>
+      <div class="cat-name">${c.name}</div>
+      <div class="cat-count">${c.count}</div>
+    </div>
+  `).join('');
+}
+
+function renderSidebar(cats) {
+  const list = document.getElementById('sidebarList');
+  list.innerHTML = cats.map(c => `
+    <li onclick="selectCategory('${c.sub}','${c.name}','${c.url}')" id="side-${c.sub}">${c.name}</li>
+  `).join('');
+}
+
+function selectCategory(sub, name, url) {
+  currentSub = sub;
+  document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('selected'));
+  const card = document.getElementById('cat-'+sub);
+  if (card) card.classList.add('selected');
+  document.querySelectorAll('#sidebarList li').forEach(el => el.classList.remove('active'));
+  const sideItem = document.getElementById('side-'+sub);
+  if (sideItem) sideItem.classList.add('active');
+
+  const cfg = SITE_CONFIG[currentSite];
+  const prods = cfg.products[sub];
+  document.getElementById('productsLabel').style.display = 'flex';
+  document.getElementById('productsLabelText').textContent = name + ' 제품';
+
+  if (prods && prods.length > 0) {
+    renderProducts(prods, url);
+  } else {
+    document.getElementById('productsGrid').innerHTML = `
+      <div class="empty-state" style="grid-column:1/-1">
+        <div class="empty-icon">🔗</div>
+        <p>사이트에서 제품을 확인하세요</p>
+        <a href="${url}" target="_blank" class="visit-btn" style="display:inline-block;margin-top:14px;max-width:220px">사이트 바로가기 →</a>
+      </div>`;
+  }
+  document.getElementById('productsLabel').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function renderProducts(prods, fallbackUrl) {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = prods.map((p,i) => `
+    <a class="product-card" href="${p.url || fallbackUrl}" target="_blank" style="animation-delay:${i*0.07}s">
+      <div class="product-img-wrap">
+        ${p.badge ? '<span class="product-badge">' + p.badge + '</span>' : ''}
+        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;opacity:.6">
+          ${getSVG(currentSub) || ''}
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-code">型番/코드: ${p.code}</div>
+      </div>
+      <div class="product-footer">
+        <span class="product-link">제품 상세 →</span>
+        <span class="product-ext">${currentSite === 'watool' ? '와툴 ↗' : 'MISUMI ↗'}</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+function switchNav(el, tab) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+  renderTab(tab);
+}
+
+// ─── SEARCH ───────────────────────────────────────────────────────────
+function doMakerSearch() {
+  const q = document.getElementById('makerSearch').value.trim();
+  if (!q) return;
+  window.open(SITE_CONFIG[currentSite].searchMaker(q), '_blank');
+}
+
+function doProductSearch() {
+  const q = document.getElementById('productSearch').value.trim();
+  if (!q) return;
+  window.open(SITE_CONFIG[currentSite].searchProduct(q), '_blank');
+}
+
+function liveProductSearch(q) {
+  if (!q || q.length < 2) return;
+  const cfg = SITE_CONFIG[currentSite];
+  const results = [];
+  Object.entries(cfg.products).forEach(([sub, prods]) => {
+    if (!prods || !prods.length) return;
+    prods.forEach(p => {
+      if (p.name.toLowerCase().includes(q.toLowerCase()) || p.code.toLowerCase().includes(q.toLowerCase())) {
+        results.push({...p, sub});
+      }
+    });
+  });
+  if (results.length > 0) {
+    showOverlay('제품 검색 결과: ' + q, results.map(p => `
+      <a class="search-result-item" href="${p.url}" target="_blank">
+        <div style="width:44px;height:44px;background:#f4f4f4;border-radius:4px;display:flex;align-items:center;justify-content:center;opacity:.7;flex-shrink:0">
+          ${getSVG(p.sub) ? '<svg viewBox="0 0 80 80" width="36" height="36">' + (getSVG(p.sub)||'').replace(/<svg[^>]*>/,'') + '</svg>' : '⚙️'}
+        </div>
+        <div>
+          <div class="search-result-name">${highlightText(p.name, q)}</div>
+          <div class="search-result-cat">코드: ${highlightText(p.code, q)}</div>
+        </div>
+      </a>
+    `).join('') + `<div style="margin-top:12px;text-align:center">
+      <a href="${cfg.searchProduct(q)}" target="_blank" class="visit-btn" style="display:inline-block;max-width:260px">전체 검색 →</a>
+    </div>`);
+  }
+}
+
+function highlightText(text, q) {
+  const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  return text.replace(re, '<span class="highlight">$1</span>');
+}
+
+function openMaker(name) {
+  window.open(SITE_CONFIG[currentSite].searchMaker(name), '_blank');
+}
+
+function showOverlay(title, html) {
+  document.getElementById('overlayTitle').textContent = title;
+  document.getElementById('overlayResults').innerHTML = html;
+  document.getElementById('searchOverlay').classList.add('active');
+}
+
+function closeOverlay(e) {
+  if (e.target.id === 'searchOverlay') {
+    document.getElementById('searchOverlay').classList.remove('active');
+  }
+}
+
+document.getElementById('makerSearch').addEventListener('keydown', e => { if (e.key === 'Enter') doMakerSearch(); });
+document.getElementById('productSearch').addEventListener('keydown', e => { if (e.key === 'Enter') doProductSearch(); });
+
+// ─── MAIN PAGE / CATALOG TOGGLE ───────────────────────────────────────
+function enterCatalog(site) {
+  document.getElementById('mainPage').style.display = 'none';
+  document.getElementById('catalogSection').style.display = '';
+  document.getElementById('mainNav').style.display = '';
+  document.getElementById('catalogLayout').style.display = '';
+  document.getElementById('homeBtn').style.display = 'flex';
+  document.body.style.cursor = '';
+  if (site) switchSite(site);
+  else init();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showMainPage() {
+  onMainPage = true;
+  document.getElementById('mainPage').style.display = '';
+  document.getElementById('catalogSection').style.display = 'none';
+  document.getElementById('mainNav').style.display = 'none';
+  document.getElementById('catalogLayout').style.display = 'none';
+  document.getElementById('homeBtn').style.display = 'none';
+  document.body.style.cursor = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── NUT CURSOR ────────────────────────────────────────────────────────
+const nutCursor = document.getElementById('nutCursor');
+let nutX = window.innerWidth / 2;
+let nutY = window.innerHeight / 2;
+let nutAngle = 0;
+let lastX = nutX, lastY = nutY;
+
+// Place cursor off-screen until first mouse move
+nutCursor.style.left = '-100px';
+nutCursor.style.top  = '-100px';
+
+document.addEventListener('mousemove', e => {
+  if (!onMainPage) return;
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+  // rotate based on movement direction & speed
+  nutAngle += Math.sqrt(dx*dx + dy*dy) * (dx + dy < 0 ? -0.8 : 0.8);
+  lastX = e.clientX; lastY = e.clientY;
+  nutX = e.clientX; nutY = e.clientY;
+  nutCursor.style.left      = nutX + 'px';
+  nutCursor.style.top       = nutY + 'px';
+  nutCursor.style.transform = `translate(-50%,-50%) rotate(${nutAngle}deg)`;
+  nutCursor.classList.add('visible');
+});
+
+// ─── CLICK TO ENTER ────────────────────────────────────────────────────
+function boltClick() {
+  if (boltClicked) return;
+  boltClicked = true;
+
+  const mainPage = document.getElementById('mainPage');
+  nutCursor.style.transition = 'opacity 0.3s';
+  nutCursor.style.opacity = '0';
+  mainPage.classList.add('page-flash-out');
+
+  setTimeout(() => {
+    onMainPage = false;
+    enterCatalog();
+    boltClicked = false;
+    mainPage.classList.remove('page-flash-out');
+    nutCursor.style.opacity = '1';
+    nutCursor.style.transition = '';
+  }, 450);
+}
+
+
+// ─── BOOT ─────────────────────────────────────────────────────────────
+document.getElementById('mainPage').style.display = '';
+document.body.style.cursor = 'none';
+</script>
+</body>
+</html>
